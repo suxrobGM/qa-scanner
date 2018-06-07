@@ -5,10 +5,10 @@ VisualStudioVersion = 15.0.27428.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QA_Scanner", "QA_Scanner\QA_Scanner.csproj", "{D56A0277-672F-4840-BC67-D83AC3CAA6D9}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B237314E-DDE6-4690-8FA5-F627F511E945}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2D60DEEA-8F04-43CA-81D0-C96DE1A18E92}"
 	ProjectSection(SolutionItems) = preProject
-		QA_Scanner\bin\Debug\ekology_1.docx = QA_Scanner\bin\Debug\ekology_1.docx
-		QA_Scanner\bin\Debug\ekology_2.docx = QA_Scanner\bin\Debug\ekology_2.docx
+		QA_Scanner\ekology_1.docx = QA_Scanner\ekology_1.docx
+		QA_Scanner\ekology_2.docx = QA_Scanner\ekology_2.docx
 	EndProjectSection
 EndProject
 Global
