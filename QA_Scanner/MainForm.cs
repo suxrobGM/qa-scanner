@@ -16,8 +16,8 @@ namespace QA_Scanner
     public partial class MainForm : Form
     {
         private HotKey hkey = new HotKey(Keys.D, KeyModifiers.Control);   //Ctrl+D
-        private string FirstDocx = "ekology_1.docx";
-        private string SecondDocx = "ekology_2.docx";
+        private string FirstDocx = "ecology_1.docx";
+        private string SecondDocx = "ecology_2.docx";
         private string[] ExtraChars = { " ", ",", ".", "!", "?" };
         
         public MainForm()
