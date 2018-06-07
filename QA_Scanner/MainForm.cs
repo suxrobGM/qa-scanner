@@ -44,52 +44,61 @@ namespace QA_Scanner
             Question = Question.RemoverStrs(ExtraChars);
             Question = Question.ToLower();
 
-            using (DocX document1 = DocX.Load(FirstDocx))
-            {               
-                foreach (var p in document1.Paragraphs)
+            try
+            {
+                using (DocX document1 = DocX.Load(FirstDocx))
                 {
-                    string ParagraphText = p.Text;
-                    ParagraphText = ParagraphText.RemoverStrs(ExtraChars);
-                    ParagraphText = ParagraphText.ToLower();
-
-                    if (ParagraphText.Contains(Question))
+                    foreach (var p in document1.Paragraphs)
                     {
-                        MatchQuestion_in_FirstDocx = true;
-                        continue;
-                    }
+                        string ParagraphText = p.Text;
+                        ParagraphText = ParagraphText.RemoverStrs(ExtraChars);
+                        ParagraphText = ParagraphText.ToLower();
 
-                    if(MatchQuestion_in_FirstDocx)
-                    {
-                        Answer_TB.Text = p.Text;
-                        break;
-                    }
-                }
-
-                if (!MatchQuestion_in_FirstDocx)
-                {
-                    using (DocX document2 = DocX.Load(SecondDocx))
-                    {
-                        foreach (var p in document2.Paragraphs)
+                        if (ParagraphText.Contains(Question))
                         {
-                            string ParagraphText = p.Text;
-                            ParagraphText = ParagraphText.RemoverStrs(ExtraChars);
-                            ParagraphText = ParagraphText.ToLower();
-
-                            if (ParagraphText.Contains(Question))
-                            {
-                                MatchQuestion_in_SecondDocx = true;
-                                continue;
-                            }
-
-                            if (MatchQuestion_in_SecondDocx)
-                            {
-                                Answer_TB.Text = p.Text;
-                                break;
-                            }
+                            MatchQuestion_in_FirstDocx = true;
+                            continue;
                         }
+
+                        if (MatchQuestion_in_FirstDocx)
+                        {
+                            Answer_TB.Text = p.Text;
+                            break;
+                        }
+                    }
+
+                    if (!MatchQuestion_in_FirstDocx)
+                    {
+                        
+                        using (DocX document2 = DocX.Load(SecondDocx))
+                        {
+                            foreach (var p in document2.Paragraphs)
+                            {
+                                string ParagraphText = p.Text;
+                                ParagraphText = ParagraphText.RemoverStrs(ExtraChars);
+                                ParagraphText = ParagraphText.ToLower();
+
+                                if (ParagraphText.Contains(Question))
+                                {
+                                    MatchQuestion_in_SecondDocx = true;
+                                    continue;
+                                }
+
+                                if (MatchQuestion_in_SecondDocx)
+                                {
+                                    Answer_TB.Text = p.Text;
+                                    break;
+                                }
+                            }
+                        }                                            
                     }
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
 
             if(!MatchQuestion_in_FirstDocx && !MatchQuestion_in_SecondDocx)
             {
@@ -109,7 +118,12 @@ namespace QA_Scanner
                 Program.mainForm.Visible = false;
             else
                 Program.mainForm.Visible = true;
-        }              
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            hkey.Dispose();
+        }
     }
 
     public static class StringHelper

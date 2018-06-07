@@ -111,7 +111,7 @@
             this.Question_TB.Multiline = true;
             this.Question_TB.Name = "Question_TB";
             this.Question_TB.Size = new System.Drawing.Size(609, 119);
-            this.Question_TB.TabIndex = 2;         
+            this.Question_TB.TabIndex = 2;
             // 
             // label1
             // 
@@ -143,7 +143,8 @@
             this.Name = "MainForm";
             this.ShowInTaskbar = false;
             this.Text = "QA Scanner";
-            this.TopMost = true;           
+            this.TopMost = true;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
