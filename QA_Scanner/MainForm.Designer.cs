@@ -81,7 +81,7 @@
             this.panel2.Location = new System.Drawing.Point(12, 183);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(633, 174);
-            this.panel2.TabIndex = 5;
+            this.panel2.TabIndex = 6;
             // 
             // label3
             // 
@@ -111,7 +111,7 @@
             this.Question_TB.Multiline = true;
             this.Question_TB.Name = "Question_TB";
             this.Question_TB.Size = new System.Drawing.Size(609, 119);
-            this.Question_TB.TabIndex = 2;
+            this.Question_TB.TabIndex = 1;
             // 
             // label1
             // 
@@ -130,7 +130,7 @@
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(633, 165);
-            this.panel1.TabIndex = 6;
+            this.panel1.TabIndex = 5;
             // 
             // MainForm
             // 
