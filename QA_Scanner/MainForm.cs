@@ -124,6 +124,17 @@ namespace QA_Scanner
         {
             hkey.Dispose();
         }
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            Program.mainForm.Opacity = (float)trackBar1.Value/100.0f;           
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            double opacity = Program.mainForm.Opacity;
+            trackBar1.Value = (int)(opacity * 100.0);
+        }
     }
 
     public static class StringHelper
