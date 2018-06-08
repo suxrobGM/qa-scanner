@@ -48,6 +48,7 @@ namespace QA_Scanner
 
             Question = Question.RemoverStrs(ExtraChars);
             Question = Question.ToLower();
+            Question = Question.Trim();
 
             try
             {
@@ -58,6 +59,7 @@ namespace QA_Scanner
                         string ParagraphText = p.Text;
                         ParagraphText = ParagraphText.RemoverStrs(ExtraChars);
                         ParagraphText = ParagraphText.ToLower();
+                        ParagraphText = ParagraphText.Trim();
 
                         if (ParagraphText.Contains(Question))
                         {
@@ -82,6 +84,7 @@ namespace QA_Scanner
                                 string ParagraphText = p.Text;
                                 ParagraphText = ParagraphText.RemoverStrs(ExtraChars);
                                 ParagraphText = ParagraphText.ToLower();
+                                ParagraphText = ParagraphText.Trim();
 
                                 if (ParagraphText.Contains(Question))
                                 {
