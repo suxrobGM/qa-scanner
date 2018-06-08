@@ -18,7 +18,7 @@ namespace QA_Scanner
         private HotKey hkey = new HotKey(Keys.D, KeyModifiers.Control);   //Ctrl+D
         private string FirstDocx = "ecology_1.docx";
         private string SecondDocx = "ecology_2.docx";
-        private string[] ExtraChars = { " ", ",", ".", "!", "?" };
+        private string[] ExtraChars = { " ", ",", ".", "!", "?", "\n","\t" };
         
         public MainForm()
         {
@@ -33,7 +33,12 @@ namespace QA_Scanner
         {
             if(Question_TB.Text==String.Empty)
             {
-                MessageBox.Show("Please enter the question string then click find button");
+                //MessageBox.Show("Please enter the question string then click find button");
+                CustomMessageBox customMessageBox = new CustomMessageBox();
+                customMessageBox.Opacity = Program.mainForm.Opacity;
+                customMessageBox.TopMost = true;
+                customMessageBox.SetText("Please enter the question string then click find button");
+                customMessageBox.Show();
                 return;
             }
 
@@ -102,7 +107,12 @@ namespace QA_Scanner
 
             if(!MatchQuestion_in_FirstDocx && !MatchQuestion_in_SecondDocx)
             {
-                MessageBox.Show("Question was not found");
+                //MessageBox.Show("Question was not found");
+                CustomMessageBox customMessageBox = new CustomMessageBox();
+                customMessageBox.Opacity = Program.mainForm.Opacity;
+                customMessageBox.TopMost = true;
+                customMessageBox.SetText("Question was not found");
+                customMessageBox.Show();
             }
         }
 
