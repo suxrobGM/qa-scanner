@@ -61,6 +61,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "CustomMessageBox";
             this.Text = "CustomMessageBox";
+            this.TopMost = true;
             this.ResumeLayout(false);
             this.PerformLayout();
 
