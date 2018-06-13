@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xceed.Words.NET;
+using System.IO;
 
 namespace QA_Scanner
 {
@@ -102,6 +103,31 @@ namespace QA_Scanner
                         }                        
                     }
                     
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return NotFoundedQuestion;
+        }
+
+        public static string FindResponsePhysics(string Question, string DocxName = "PhysicsQA_2018.txt")
+        {
+            Question = Question.ParseQA();
+            string[] buffer = File.ReadAllLines(DocxName);
+
+            try
+            {
+                foreach(var line in buffer)
+                {
+                    string question_line = line;
+                    question_line = question_line.ParseQA();
+                    if (question_line.Contains(Question))
+                    {
+                        string asnwer_line = line.Remove(0, line.IndexOf("Правильный ответ:"));
+                        return asnwer_line;
+                    }
                 }
             }
             catch (Exception ex)

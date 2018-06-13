@@ -93,11 +93,15 @@ namespace QA_Scanner
 
             try
             {
-                if (comboBox1.SelectedIndex == 0) //English
+                if (comboBox1.SelectedIndex == 0) //Physics
+                {
+                    Answer_TB.Text = Subjects.FindResponsePhysics(Question_TB.Text);
+                }
+                else if (comboBox1.SelectedIndex == 1) //English
                 {
                     Answer_TB.Text = Subjects.FindResponseEnglish(Question_TB.Text);
                 }
-                else if (comboBox1.SelectedIndex == 1) //Ecology
+                else if (comboBox1.SelectedIndex == 2) //Ecology
                 {
                     Answer_TB.Text = Subjects.FindResponseEcology(Question_TB.Text);
                 }

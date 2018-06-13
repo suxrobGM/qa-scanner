@@ -106,6 +106,7 @@
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
+            "Physics - 2018",
             "English - 2018",
             "Ecology - 2018"});
             this.comboBox1.Location = new System.Drawing.Point(196, 172);
