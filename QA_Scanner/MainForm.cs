@@ -31,7 +31,7 @@ namespace QA_Scanner
             double opacity = Program.mainForm.Opacity;
             trackBar1.Value = (int)(opacity * 100.0);
 
-            comboBox1.SelectedIndex = 0;
+            comboBox1.SelectedIndex = 3; //Default Structure - 2018
         }
 
         private void Find_Btn_Click(object sender, EventArgs e)
@@ -104,6 +104,10 @@ namespace QA_Scanner
                 else if (comboBox1.SelectedIndex == 2) //Ecology
                 {
                     Answer_TB.Text = Subjects.FindResponseEcology(Question_TB.Text);
+                }
+                else if (comboBox1.SelectedIndex == 3) //Structure
+                {
+                    Answer_TB.Text = Subjects.FindResponseStructure(Question_TB.Text);
                 }
             }
             catch (Exception ex)

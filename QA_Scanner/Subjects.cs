@@ -136,7 +136,48 @@ namespace QA_Scanner
             }
             return NotFoundedQuestion;
         }
+
+        public static string FindResponseStructure(string Question, string DocxName = "structure_2018.docx")
+        {
+            Question = Question.ParseQA();
+
+            try
+            {
+                using (DocX document = DocX.Load(DocxName))
+                {
+                    foreach (var row in document.Tables[0].Rows)
+                    {
+                        string CellText = row.Cells[1].Paragraphs[0].Text;
+
+                        if (row.Cells[1].Paragraphs.Count > 1)
+                        {
+                            string Temp = String.Empty;
+                            for (int i = 0; i < row.Cells[1].Paragraphs.Count; i++)
+                            {
+                                Temp += row.Cells[1].Paragraphs[i].Text;
+                            }
+                            CellText = Temp;
+                        }
+
+                        CellText = CellText.ParseQA();
+
+                        if (CellText.Contains(Question))
+                        {
+                            return row.Cells[2].Paragraphs[0].Text; //founded answer!
+                        }
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return NotFoundedQuestion;
+        }
     }
+
+
 
     public static class StringHelper
     {
