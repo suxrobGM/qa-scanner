@@ -10,8 +10,8 @@ namespace QA_Scanner
 {
     public static class Subjects
     {
-        private const string FirstDocx = "ecology_1_2018.docx";
-        private const string SecondDocx = "ecology_2_2018.docx";
+        private const string FirstDocx = "assets\\ecology_1_2018.docx";
+        private const string SecondDocx = "assets\\ecology_2_2018.docx";
         public const string NotFoundedQuestion = "Question was not found";      
 
         public static string FindResponseEcology(string Question, string FirstDocxName = FirstDocx, string SecondDocxName = SecondDocx)
@@ -73,7 +73,7 @@ namespace QA_Scanner
             return NotFoundedQuestion;           
         }
 
-        public static string FindResponseEnglish(string Question, string DocxName = "english_2018.docx")
+        public static string FindResponseEnglish(string Question, string DocxName = "assets\\english_2018.docx")
         {           
             Question = Question.ParseQA();            
 
@@ -112,7 +112,7 @@ namespace QA_Scanner
             return NotFoundedQuestion;
         }
 
-        public static string FindResponsePhysics(string Question, string DocxName = "PhysicsQA_2018.txt")
+        public static string FindResponsePhysics(string Question, string DocxName = "assets\\PhysicsQA_2018.txt")
         {
             Question = Question.ParseQA();
             string[] buffer = File.ReadAllLines(DocxName);
@@ -137,7 +137,7 @@ namespace QA_Scanner
             return NotFoundedQuestion;
         }
 
-        public static string FindResponseStructure(string Question, string DocxName = "structure_2018.docx")
+        public static string FindResponseStructure(string Question, string DocxName = "assets\\structure_2018.docx")
         {
             Question = Question.ParseQA();
 

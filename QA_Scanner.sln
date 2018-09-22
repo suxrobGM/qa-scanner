@@ -6,13 +6,6 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QA_Scanner", "QA_Scanner\QA_Scanner.csproj", "{D56A0277-672F-4840-BC67-D83AC3CAA6D9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C649487D-53E0-435D-BD04-C05F85C794EA}"
-	ProjectSection(SolutionItems) = preProject
-		QA_Scanner\ecology_1_2018.docx = QA_Scanner\ecology_1_2018.docx
-		QA_Scanner\ecology_2_2018.docx = QA_Scanner\ecology_2_2018.docx
-		QA_Scanner\english_2018.docx = QA_Scanner\english_2018.docx
-		QA_Scanner\PhysicsQA_2018.txt = QA_Scanner\PhysicsQA_2018.txt
-		QA_Scanner\structure_2018.docx = QA_Scanner\structure_2018.docx
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
