@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
-namespace QA_Scanner
+namespace QA_Scanner.Models
 {
     /// <summary>
     /// Specifies key modifiers.

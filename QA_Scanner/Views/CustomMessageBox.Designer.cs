@@ -1,4 +1,4 @@
-﻿namespace QA_Scanner
+﻿namespace QA_Scanner.Views
 {
     partial class CustomMessageBox
     {

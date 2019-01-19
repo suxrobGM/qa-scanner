@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace QA_Scanner
+namespace QA_Scanner.Views
 {
     public partial class CustomMessageBox : Form
     {

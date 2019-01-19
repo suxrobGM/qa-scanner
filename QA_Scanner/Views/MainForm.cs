@@ -11,9 +11,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using QA_Scanner.Models;
 
-
-namespace QA_Scanner
+namespace QA_Scanner.Views
 {
     public partial class MainForm : Form
     {
@@ -36,7 +36,7 @@ namespace QA_Scanner
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            double opacity = Program.mainForm.Opacity;
+            double opacity = Program.MainWindow.Opacity;
             trackBar1.Value = (int)(opacity * 100.0);
 
             comboBox1.SelectedIndex = 3; //Default Structure - 2018
@@ -60,7 +60,7 @@ namespace QA_Scanner
 
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
-            Program.mainForm.Opacity = trackBar1.Value / 100.0f;           
+            Program.MainWindow.Opacity = trackBar1.Value / 100.0f;           
         }              
 
         private void Question_TB_KeyDown(object sender, KeyEventArgs e)
@@ -98,10 +98,10 @@ namespace QA_Scanner
         //Functions
         private void SetVisible()
         {
-            if (Program.mainForm.Visible)
-                Program.mainForm.Visible = false;
+            if (Program.MainWindow.Visible)
+                Program.MainWindow.Visible = false;
             else
-                Program.mainForm.Visible = true;
+                Program.MainWindow.Visible = true;
         }
 
         private void AddOpacity()
@@ -109,7 +109,7 @@ namespace QA_Scanner
             if(trackBar1.Value < trackBar1.Maximum)
             {
                 trackBar1.Value++;
-                Program.mainForm.Opacity = trackBar1.Value / 100.0f;
+                Program.MainWindow.Opacity = trackBar1.Value / 100.0f;
             }
         }
 
@@ -118,7 +118,7 @@ namespace QA_Scanner
             if (trackBar1.Value > trackBar1.Minimum)
             {
                 trackBar1.Value--;
-                Program.mainForm.Opacity = trackBar1.Value / 100.0f;
+                Program.MainWindow.Opacity = trackBar1.Value / 100.0f;
             }
         }
 
@@ -127,7 +127,7 @@ namespace QA_Scanner
             if (Question_TB.Text == String.Empty)
             {
                 CustomMessageBox customMessageBox = new CustomMessageBox();
-                customMessageBox.Opacity = Program.mainForm.Opacity;
+                customMessageBox.Opacity = Program.MainWindow.Opacity;
                 customMessageBox.SetText("Please enter the question string then click find button");
                 customMessageBox.Show();
                 return;
@@ -137,25 +137,25 @@ namespace QA_Scanner
             {
                 if (comboBox1.SelectedIndex == 0) //Physics
                 {
-                    Answer_TB.Text = Subjects.FindResponsePhysics(Question_TB.Text);
+                    Answer_TB.Text = Subject.FindResponsePhysics(Question_TB.Text);
                 }
                 else if (comboBox1.SelectedIndex == 1) //English
                 {
-                    Answer_TB.Text = Subjects.FindResponseEnglish(Question_TB.Text);
+                    Answer_TB.Text = Subject.FindResponseEnglish(Question_TB.Text);
                 }
                 else if (comboBox1.SelectedIndex == 2) //Ecology
                 {
-                    Answer_TB.Text = Subjects.FindResponseEcology(Question_TB.Text);
+                    Answer_TB.Text = Subject.FindResponseEcology(Question_TB.Text);
                 }
                 else if (comboBox1.SelectedIndex == 3) //Structure
                 {
-                    Answer_TB.Text = Subjects.FindResponseStructure(Question_TB.Text);
+                    Answer_TB.Text = Subject.FindResponseStructure(Question_TB.Text);
                 }
             }
             catch (Exception ex)
             {
                 CustomMessageBox customMessageBox = new CustomMessageBox();
-                customMessageBox.Opacity = Program.mainForm.Opacity;
+                customMessageBox.Opacity = Program.MainWindow.Opacity;
                 customMessageBox.SetText(ex.Message);
                 customMessageBox.Show();
             }

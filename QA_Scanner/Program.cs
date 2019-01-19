@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QA_Scanner.Views;
 
 namespace QA_Scanner
 {
     static class Program
     {
-        public static MainForm mainForm;
+        public static MainForm MainWindow;
         
         /// <summary>
         /// Главная точка входа для приложения.
@@ -18,8 +19,8 @@ namespace QA_Scanner
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            mainForm = new MainForm();
-            Application.Run(mainForm);
+            MainWindow = new MainForm();
+            Application.Run(MainWindow);
         }
     }
 }
