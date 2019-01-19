@@ -57,6 +57,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Automation.cs" />
     <Compile Include="Models\StringHelper.cs" />
     <Compile Include="Views\CustomMessageBox.cs">
       <SubType>Form</SubType>
@@ -73,7 +74,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Models\Subjects.cs" />
+    <Compile Include="Models\Subject.cs" />
     <EmbeddedResource Include="Views\CustomMessageBox.resx">
       <DependentUpon>CustomMessageBox.cs</DependentUpon>
     </EmbeddedResource>

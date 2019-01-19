@@ -9,8 +9,6 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 using QA_Scanner.Models;
 
 namespace QA_Scanner.Views
@@ -19,8 +17,7 @@ namespace QA_Scanner.Views
     {
         private HotKey hkey = new HotKey(System.Windows.Forms.Keys.D, KeyModifiers.Control);   //Ctrl+D
         private HotKey trackBarKey_Plus = new HotKey(System.Windows.Forms.Keys.Multiply, KeyModifiers.None);
-        private HotKey trackBarKey_Minus = new HotKey(System.Windows.Forms.Keys.Divide, KeyModifiers.None);
-        private static string LoginSite = @"http://moodle.samtuit.uz/login/index.php";
+        private HotKey trackBarKey_Minus = new HotKey(System.Windows.Forms.Keys.Divide, KeyModifiers.None);      
 
         public MainForm()
         {
@@ -86,16 +83,13 @@ namespace QA_Scanner.Views
         private void Start_Btn_Click(object sender, EventArgs e)
         {
             if(Login_TB.Text != String.Empty && Password_TB.Text != String.Empty)
-            {
-                var chromeDriverService = ChromeDriverService.CreateDefaultService();
-                chromeDriverService.HideCommandPromptWindow = true;
-
-                SessionLogin(new ChromeDriver(chromeDriverService, new ChromeOptions()), Login_TB.Text, Password_TB.Text);
+            {               
+                var automation = new Automation(Login_TB.Text, Password_TB.Text);
+                automation.SessionLogin();               
             }
         }
 
-
-        //Functions
+        
         private void SetVisible()
         {
             if (Program.MainWindow.Visible)
@@ -159,25 +153,6 @@ namespace QA_Scanner.Views
                 customMessageBox.SetText(ex.Message);
                 customMessageBox.Show();
             }
-        }
-
-        private void SessionLogin(IWebDriver webDriver, string username, string password)
-        {
-            try
-            {
-                webDriver.Navigate().GoToUrl(LoginSite);
-                var userNameField = webDriver.FindElement(By.Id("username"));
-                var userPasswordField = webDriver.FindElement(By.Id("password"));
-                var loginButton = webDriver.FindElement(By.Id("loginbtn"));
-
-                userNameField.SendKeys(username);
-                userPasswordField.SendKeys(password);
-                loginButton.Click();
-            }
-            catch (Exception)
-            {
-                throw new Exception();
-            }
-        }
+        }      
     }
 }
