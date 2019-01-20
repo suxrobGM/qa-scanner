@@ -180,7 +180,19 @@ namespace QA_Scanner.Models
 
             using (var docx = DocX.Load(docFile))
             {
-                //docx.Tables[0].Rows
+                int i = 0;
+                //docx.Tables[0].Rows.Select(i => i.Cells[1].Paragraphs);
+                foreach (var row in docx.Tables[0].Rows)
+                {
+                    i++;
+                    string questionLine = row.Cells[1].Paragraphs[0].Text.ParseQA();
+                    
+                    if (questionLine.Contains(question))
+                    {
+                        
+                        return row.Cells[2].Paragraphs[0].Text;
+                    }
+                }
             }
 
             return questionNotFound;

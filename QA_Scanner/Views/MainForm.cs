@@ -29,14 +29,11 @@ namespace QA_Scanner.Views
             trackBarKey_Plus.Register(this);
             trackBarKey_Minus.Pressed += (o, e) => { SubtractOpacity(); e.Handled = true; };
             trackBarKey_Minus.Register(this);
-        }
 
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-            double opacity = Program.MainWindow.Opacity;
+            double opacity = this.Opacity;
             trackBar1.Value = (int)(opacity * 100.0);
 
-            comboBox1.SelectedIndex = 3; //Default Structure - 2018
+            comboBox1.SelectedIndex = 4;
         }
 
         private void Find_Btn_Click(object sender, EventArgs e)
@@ -49,11 +46,6 @@ namespace QA_Scanner.Views
             Question_TB.Text = String.Empty;
             Answer_TB.Text = String.Empty;           
         }       
-
-        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            hkey.Dispose();
-        }
 
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
@@ -127,32 +119,41 @@ namespace QA_Scanner.Views
                 return;
             }
 
-            try
+            switch (comboBox1.SelectedIndex)
             {
-                if (comboBox1.SelectedIndex == 0) //Physics
-                {
-                    Answer_TB.Text = Subject.FindResponsePhysics(Question_TB.Text);
-                }
-                else if (comboBox1.SelectedIndex == 1) //English
-                {
-                    Answer_TB.Text = Subject.FindResponseEnglish(Question_TB.Text);
-                }
-                else if (comboBox1.SelectedIndex == 2) //Ecology
-                {
-                    Answer_TB.Text = Subject.FindResponseEcology(Question_TB.Text);
-                }
-                else if (comboBox1.SelectedIndex == 3) //Structure
-                {
-                    Answer_TB.Text = Subject.FindResponseStructure(Question_TB.Text);
-                }
+                case 0: //Physics
+                    {
+                        Answer_TB.Text = Subject.FindResponsePhysics(Question_TB.Text);
+                        break;
+                    }
+                case 1: //English
+                    {
+                        Answer_TB.Text = Subject.FindResponseEnglish(Question_TB.Text);
+                        break;
+                    }
+                case 2: //Ecology
+                    {
+                        Answer_TB.Text = Subject.FindResponseEcology(Question_TB.Text);
+                        break;
+                    }
+                case 3: //Data Structure 2018
+                    {
+                        Answer_TB.Text = Subject.FindResponseStructure(Question_TB.Text);
+                        break;
+                    }
+                case 4: //Computer Network 2019
+                    {
+                        Answer_TB.Text = Subject.FindResponseComputerNetwork(Question_TB.Text);
+                        break;
+                    }
+                default:
+                    break;
             }
-            catch (Exception ex)
-            {
-                CustomMessageBox customMessageBox = new CustomMessageBox();
-                customMessageBox.Opacity = Program.MainWindow.Opacity;
-                customMessageBox.SetText(ex.Message);
-                customMessageBox.Show();
-            }
-        }      
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            hkey.Dispose();
+        }
     }
 }

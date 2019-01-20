@@ -79,7 +79,7 @@
             // 
             this.Answer_TB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Answer_TB.Location = new System.Drawing.Point(15, 28);
-            this.Answer_TB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Answer_TB.Margin = new System.Windows.Forms.Padding(4);
             this.Answer_TB.Multiline = true;
             this.Answer_TB.Name = "Answer_TB";
             this.Answer_TB.Size = new System.Drawing.Size(811, 146);
@@ -89,7 +89,7 @@
             // 
             this.Find_Btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Find_Btn.Location = new System.Drawing.Point(621, 224);
-            this.Find_Btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Find_Btn.Margin = new System.Windows.Forms.Padding(4);
             this.Find_Btn.Name = "Find_Btn";
             this.Find_Btn.Size = new System.Drawing.Size(100, 28);
             this.Find_Btn.TabIndex = 4;
@@ -109,7 +109,7 @@
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.Find_Btn);
             this.panel2.Location = new System.Drawing.Point(8, 238);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(844, 271);
             this.panel2.TabIndex = 6;
@@ -118,7 +118,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(257, 183);
+            this.label6.Location = new System.Drawing.Point(201, 183);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(69, 18);
@@ -132,11 +132,12 @@
             "Physics - 2018",
             "English - 2018",
             "Ecology - 2018",
-            "Data Structure - 2018"});
-            this.comboBox1.Location = new System.Drawing.Point(261, 212);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            "Data Structure - 2018",
+            "Computer Network - 2019"});
+            this.comboBox1.Location = new System.Drawing.Point(204, 212);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(160, 24);
+            this.comboBox1.Size = new System.Drawing.Size(217, 24);
             this.comboBox1.TabIndex = 8;
             // 
             // label4
@@ -154,7 +155,7 @@
             // 
             this.trackBar1.LargeChange = 10;
             this.trackBar1.Location = new System.Drawing.Point(457, 212);
-            this.trackBar1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.trackBar1.Margin = new System.Windows.Forms.Padding(4);
             this.trackBar1.Maximum = 100;
             this.trackBar1.Minimum = 10;
             this.trackBar1.Name = "trackBar1";
@@ -178,7 +179,7 @@
             // 
             this.Clear_Btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Clear_Btn.Location = new System.Drawing.Point(727, 224);
-            this.Clear_Btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Clear_Btn.Margin = new System.Windows.Forms.Padding(4);
             this.Clear_Btn.Name = "Clear_Btn";
             this.Clear_Btn.Size = new System.Drawing.Size(100, 28);
             this.Clear_Btn.TabIndex = 5;
@@ -190,7 +191,7 @@
             // 
             this.Question_TB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Question_TB.Location = new System.Drawing.Point(15, 37);
-            this.Question_TB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Question_TB.Margin = new System.Windows.Forms.Padding(4);
             this.Question_TB.Multiline = true;
             this.Question_TB.Name = "Question_TB";
             this.Question_TB.Size = new System.Drawing.Size(811, 146);
@@ -213,7 +214,7 @@
             this.panel1.Controls.Add(this.Question_TB);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(8, 16);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(844, 203);
             this.panel1.TabIndex = 5;
@@ -224,7 +225,7 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(876, 549);
@@ -235,9 +236,9 @@
             this.tabPage1.Controls.Add(this.panel1);
             this.tabPage1.Controls.Add(this.panel2);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage1.Size = new System.Drawing.Size(868, 520);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Manual";
@@ -258,9 +259,9 @@
             this.tabPage2.Controls.Add(this.Login_TB);
             this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage2.Size = new System.Drawing.Size(868, 520);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Automation";
@@ -280,7 +281,7 @@
             // SubjectURL_TB
             // 
             this.SubjectURL_TB.Location = new System.Drawing.Point(11, 300);
-            this.SubjectURL_TB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.SubjectURL_TB.Margin = new System.Windows.Forms.Padding(4);
             this.SubjectURL_TB.Name = "SubjectURL_TB";
             this.SubjectURL_TB.Size = new System.Drawing.Size(259, 22);
             this.SubjectURL_TB.TabIndex = 10;
@@ -300,7 +301,7 @@
             // 
             this.Start_Btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Start_Btn.Location = new System.Drawing.Point(15, 395);
-            this.Start_Btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Start_Btn.Margin = new System.Windows.Forms.Padding(4);
             this.Start_Btn.Name = "Start_Btn";
             this.Start_Btn.Size = new System.Drawing.Size(109, 28);
             this.Start_Btn.TabIndex = 8;
@@ -311,7 +312,7 @@
             // Teacher_Password_TB
             // 
             this.Teacher_Password_TB.Location = new System.Drawing.Point(11, 220);
-            this.Teacher_Password_TB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Teacher_Password_TB.Margin = new System.Windows.Forms.Padding(4);
             this.Teacher_Password_TB.Name = "Teacher_Password_TB";
             this.Teacher_Password_TB.Size = new System.Drawing.Size(259, 22);
             this.Teacher_Password_TB.TabIndex = 7;
@@ -330,7 +331,7 @@
             // Password_TB
             // 
             this.Password_TB.Location = new System.Drawing.Point(11, 144);
-            this.Password_TB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Password_TB.Margin = new System.Windows.Forms.Padding(4);
             this.Password_TB.Name = "Password_TB";
             this.Password_TB.Size = new System.Drawing.Size(259, 22);
             this.Password_TB.TabIndex = 5;
@@ -372,7 +373,7 @@
             // Login_TB
             // 
             this.Login_TB.Location = new System.Drawing.Point(11, 85);
-            this.Login_TB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Login_TB.Margin = new System.Windows.Forms.Padding(4);
             this.Login_TB.Name = "Login_TB";
             this.Login_TB.Size = new System.Drawing.Size(259, 22);
             this.Login_TB.TabIndex = 1;
@@ -395,13 +396,12 @@
             this.ClientSize = new System.Drawing.Size(876, 549);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
             this.ShowInTaskbar = false;
             this.Text = "QA Scanner";
             this.TopMost = true;
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
-            this.Load += new System.EventHandler(this.MainForm_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();

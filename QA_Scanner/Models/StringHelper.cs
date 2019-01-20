@@ -8,14 +8,15 @@ namespace QA_Scanner.Models
 {
     public static class StringHelper
     {
-        private static readonly string[] extraChars = { " ", ",", ".", "!", "?", Environment.NewLine, "_", "-" };
+        private static readonly string[] extraChars = { Convert.ToChar(160).ToString(), " ", ",", ".", "!", "?", Environment.NewLine, "_", "-" };
 
         public static string RemoverStrs(this string str, string[] removeStrs)
         {
             foreach (var removeStr in removeStrs)
             {
                 str = str.Replace(removeStr, "");
-            }
+            }            
+            
             return str;
         }
 
