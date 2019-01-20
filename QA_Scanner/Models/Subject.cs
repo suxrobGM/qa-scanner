@@ -176,7 +176,12 @@ namespace QA_Scanner.Models
 
         public static string FindResponseComputerNetwork(string question, string docFile = "Documents\\ComputerNetwork_2019.docx")
         {
+            question = question.ParseQA();
 
+            using (var docx = DocX.Load(docFile))
+            {
+                //docx.Tables[0].Rows
+            }
 
             return questionNotFound;
         }
