@@ -49,7 +49,7 @@ namespace QA_Scanner.Views
 
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
-            Program.MainWindow.Opacity = trackBar1.Value / 100.0f;           
+            this.Opacity = trackBar1.Value / 100.0f;           
         }              
 
         private void Question_TB_KeyDown(object sender, KeyEventArgs e)
@@ -84,10 +84,10 @@ namespace QA_Scanner.Views
         
         private void SetVisible()
         {
-            if (Program.MainWindow.Visible)
-                Program.MainWindow.Visible = false;
+            if (this.Visible)
+                this.Visible = false;
             else
-                Program.MainWindow.Visible = true;
+                this.Visible = true;
         }
 
         private void AddOpacity()
@@ -95,7 +95,7 @@ namespace QA_Scanner.Views
             if(trackBar1.Value < trackBar1.Maximum)
             {
                 trackBar1.Value++;
-                Program.MainWindow.Opacity = trackBar1.Value / 100.0f;
+                this.Opacity = trackBar1.Value / 100.0f;
             }
         }
 
@@ -104,7 +104,7 @@ namespace QA_Scanner.Views
             if (trackBar1.Value > trackBar1.Minimum)
             {
                 trackBar1.Value--;
-                Program.MainWindow.Opacity = trackBar1.Value / 100.0f;
+                this.Opacity = trackBar1.Value / 100.0f;
             }
         }
 
@@ -113,9 +113,10 @@ namespace QA_Scanner.Views
             if (Question_TB.Text == String.Empty)
             {
                 CustomMessageBox customMessageBox = new CustomMessageBox();
-                customMessageBox.Opacity = Program.MainWindow.Opacity;
+                customMessageBox.Opacity = this.Opacity;
                 customMessageBox.SetText("Please enter the question string then click find button");
-                customMessageBox.Show();
+                customMessageBox.StartPosition = FormStartPosition.CenterParent;
+                customMessageBox.ShowDialog();
                 return;
             }
 

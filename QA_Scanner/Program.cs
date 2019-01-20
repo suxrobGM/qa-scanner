@@ -8,9 +8,7 @@ using QA_Scanner.Views;
 namespace QA_Scanner
 {
     static class Program
-    {
-        public static MainForm MainWindow;
-        
+    {              
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>
@@ -19,8 +17,7 @@ namespace QA_Scanner
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            MainWindow = new MainForm();
-            Application.Run(MainWindow);
+            Application.Run(new MainForm());
         }
     }
 }
