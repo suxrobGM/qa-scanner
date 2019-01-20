@@ -41,9 +41,9 @@ namespace QA_Scanner.Models
                 userPasswordField.SendKeys(_password);
                 loginButton.Click();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw new Exception();
+                throw new Exception(ex.Message);
             }
         }
     }

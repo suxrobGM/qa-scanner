@@ -12,7 +12,7 @@ namespace QA_Scanner.Models
     {        
         public const string questionNotFound = "Question was not found";      
 
-        public static string FindResponseEcology(string question, string firstDocFile = "Resources\\Ecology_1_2018.docx", string secondDocFile = "Resources\\Ecology_2_2018.docx")
+        public static string FindResponseEcology(string question, string firstDocFile = "Documents\\Ecology_1_2018.docx", string secondDocFile = "Documents\\Ecology_2_2018.docx")
         {
             bool MatchQuestion_in_FirstDocx = false;
             bool MatchQuestion_in_SecondDocx = false;
@@ -71,13 +71,13 @@ namespace QA_Scanner.Models
             return questionNotFound;           
         }
 
-        public static string FindResponseEnglish(string question, string DocFile = "Resources\\English_2018.docx")
+        public static string FindResponseEnglish(string question, string docFile = "Documents\\English_2018.docx")
         {           
             question = question.ParseQA();            
 
             try
             {
-                using (DocX document = DocX.Load(DocFile))
+                using (DocX document = DocX.Load(docFile))
                 {                 
                     foreach(var row in document.Tables[0].Rows)
                     {
@@ -110,10 +110,10 @@ namespace QA_Scanner.Models
             return questionNotFound;
         }
 
-        public static string FindResponsePhysics(string question, string DocFile = "Resources\\PhysicsQA_2018.txt")
+        public static string FindResponsePhysics(string question, string docFile = "Documents\\PhysicsQA_2018.txt")
         {
             question = question.ParseQA();
-            string[] buffer = File.ReadAllLines(DocFile);
+            string[] buffer = File.ReadAllLines(docFile);
 
             try
             {
@@ -135,13 +135,13 @@ namespace QA_Scanner.Models
             return questionNotFound;
         }
 
-        public static string FindResponseStructure(string question, string DocFile = "Resources\\DataStructure_2018.docx")
+        public static string FindResponseStructure(string question, string docFile = "Documents\\DataStructure_2018.docx")
         {
             question = question.ParseQA();
 
             try
             {
-                using (DocX document = DocX.Load(DocFile))
+                using (DocX document = DocX.Load(docFile))
                 {
                     foreach (var row in document.Tables[0].Rows)
                     {
@@ -171,6 +171,13 @@ namespace QA_Scanner.Models
             {
                 throw ex;
             }
+            return questionNotFound;
+        }
+
+        public static string FindResponseComputerNetwork(string question, string docFile = "Documents\\ComputerNetwork_2019.docx")
+        {
+
+
             return questionNotFound;
         }
     }
