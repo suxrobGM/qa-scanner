@@ -150,8 +150,8 @@ namespace QA_Scanner.Models
             if (!this.IsRegistered)
                 return;
 
-            if (!UnregisterHotKey(this.windowHandle, this.Guid))
-                throw new Win32Exception();
+            //if (!UnregisterHotKey(this.windowHandle, this.Guid))
+            //    throw new Win32Exception();
 
             this.IsRegistered = false;
         }
