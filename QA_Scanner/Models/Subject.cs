@@ -13,6 +13,27 @@ namespace QA_Scanner.Models
         private const string questionNotFound = "Question was not found";
         private const string answerNotFound = "The answer of this question was not found";
 
+
+        public static string ResponseManualTableMethod(string question, string docFile = "Documents\\ManualTableMethod.docx")
+        {
+            question = question.ParseQA();
+
+            using (var docx = DocX.Load(docFile))
+            {
+                foreach (var row in docx.Tables[0].Rows)
+                {
+                    string questionLine = row.Cells[1].Paragraphs[0].Text.ParseQA();
+
+                    if (questionLine.Contains(question))
+                    {
+                        return row.Cells[2].Paragraphs[0].Text;
+                    }
+                }
+            }
+
+            return questionNotFound;
+        }
+
         public static string ResponseEcology(string question, string firstDocFile = "Documents\\Ecology_1_2018.docx", string secondDocFile = "Documents\\Ecology_2_2018.docx")
         {
             bool MatchQuestion_in_FirstDocx = false;
@@ -228,6 +249,6 @@ namespace QA_Scanner.Models
             }
 
             return questionNotFound;
-        }
+        }       
     }
 }

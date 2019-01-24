@@ -96,6 +96,7 @@
     <None Include="Documents\Ecology_2_2018.docx" />
     <None Include="Documents\English_2018.docx" />
     <None Include="Documents\DataStructure_2018.docx" />
+    <None Include="Documents\ManualTableMethod.docx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

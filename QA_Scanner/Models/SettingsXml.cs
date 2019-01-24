@@ -14,7 +14,7 @@ namespace QA_Scanner.Models
     {
         private readonly string _xmlFile;
         private string _selectedSubject;
-        private bool _isAsynchronousFind;
+        private bool _isAsynchronousFinding;
         private double _opacity;
         private XDocument _xDoc;
 
@@ -57,19 +57,19 @@ namespace QA_Scanner.Models
             }
         }
 
-        public bool IsAsynchronousFind
+        public bool IsAsynchronousFinding
         {
             get
             {
-                _isAsynchronousFind = Boolean.Parse(_xDoc.Root.Element("IsAsynchronousFind").Value);
-                return _isAsynchronousFind;
+                _isAsynchronousFinding = Boolean.Parse(_xDoc.Root.Element("IsAsynchronousFinding").Value);
+                return _isAsynchronousFinding;
             }
             set
             {
-                _isAsynchronousFind = value;
-                _xDoc.Root.Element("IsAsynchronousFind").Value = value.ToString();
+                _isAsynchronousFinding = value;
+                _xDoc.Root.Element("IsAsynchronousFinding").Value = value.ToString();
                 _xDoc.Save(_xmlFile);
-                RaisePropertyChanged("IsAsynchronousFind");
+                RaisePropertyChanged("IsAsynchronousFinding");
             }
         }
 
@@ -92,15 +92,15 @@ namespace QA_Scanner.Models
 
         private void SetDefaultSettings()
         {
-            _selectedSubject = "Manual";
-            _isAsynchronousFind = true;
+            _selectedSubject = "Manual Table Method";
+            _isAsynchronousFinding = true;
             _opacity = 1.0;
 
             _xDoc = new XDocument(
                 new XDeclaration("1.0.0.0", "utf-8", "yes"),
                 new XElement("General_Settings",
                     new XElement("SelectedSubject", _selectedSubject),
-                    new XElement("IsAsynchronousFind", _isAsynchronousFind),
+                    new XElement("IsAsynchronousFinding", _isAsynchronousFinding),
                     new XElement("Opacity", _opacity)
                     )
                 );

@@ -32,15 +32,14 @@ namespace QA_Scanner.Views
             trackBarKey_Minus.Register(this);
 
             _settings = new SettingsXml("Settings.xml");
-            isAsyncFind.Checked = _settings.IsAsynchronousFind;
-            selectedSubject.SelectedText = _settings.SelectedSubject;
+            isAsyncFind.Checked = _settings.IsAsynchronousFinding;
+            selectedSubject.SelectedItem = _settings.SelectedSubject;
             Opacity = _settings.Opacity;
-            opacityTrack.Value = (int)(Opacity * 100.0);
-            
+            opacityTrack.Value = (int)(Opacity * 100.0);           
         }
 
         #region Event methods
-        private void Find_Btn_Click(object sender, EventArgs e)
+        private void findBtn_Click(object sender, EventArgs e)
         {
             if (questionText.Text == String.Empty)
             {                
@@ -52,7 +51,7 @@ namespace QA_Scanner.Views
             FindAnswer();
         }
 
-        private void Clear_Btn_Click(object sender, EventArgs e)
+        private void clearBtn_Click(object sender, EventArgs e)
         {
             questionText.Text = String.Empty;
             answerText.Text = String.Empty;           
@@ -64,7 +63,7 @@ namespace QA_Scanner.Views
             _settings.Opacity = Opacity;
         }              
 
-        private void Question_TB_KeyDown(object sender, KeyEventArgs e)
+        private void questionText_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.KeyCode == Keys.A && e.Control)
             {
@@ -74,9 +73,24 @@ namespace QA_Scanner.Views
 
             if (e.KeyData == Keys.Enter)
             {
-                Find_Btn_Click(sender, e);
+                findBtn_Click(sender, e);
                 e.SuppressKeyPress = true;
             }
+        }       
+
+        private void questionText_TextChanged(object sender, EventArgs e)
+        {
+            FindAnswer();
+        }
+
+        private void isAsyncFind_CheckedChanged(object sender, EventArgs e)
+        {
+            _settings.IsAsynchronousFinding = isAsyncFind.Checked;
+        }
+
+        private void selectedSubject_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _settings.SelectedSubject = selectedSubject.SelectedItem.ToString();
         }
 
         private void siteLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -84,18 +98,13 @@ namespace QA_Scanner.Views
             Process.Start("http://moodle.samtuit.uz");
         }
 
-        private void Start_Btn_Click(object sender, EventArgs e)
+        private void startBtn_Click(object sender, EventArgs e)
         {
-            if(Login_TB.Text != String.Empty && Password_TB.Text != String.Empty)
-            {               
+            if (Login_TB.Text != String.Empty && Password_TB.Text != String.Empty)
+            {
                 var automation = new Automation(Login_TB.Text, Password_TB.Text);
-                automation.SessionLogin();               
+                automation.SessionLogin();
             }
-        }
-
-        private void questionText_TextChanged(object sender, EventArgs e)
-        {
-            FindAnswer();
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -137,9 +146,9 @@ namespace QA_Scanner.Views
         {           
             switch (selectedSubject.SelectedIndex)
             {
-                case 0: // Manual
+                case 0: // Manual Table Method
                     {
-                        //Answer_TB.Text = Subject.ResponsePhysics(Question_TB.Text);
+                        answerText.Text = Subject.ResponseManualTableMethod(questionText.Text);
                         break;
                     }
                 case 1: // English - 2018
@@ -157,20 +166,26 @@ namespace QA_Scanner.Views
                         answerText.Text = Subject.ResponseStructure(questionText.Text);
                         break;
                     }
-                case 4: //Computer Network - 2019
+                case 4: // Physics - 2018
                     {
-                        answerText.Text = Subject.ResponseComputerNetwork(questionText.Text);
+                        answerText.Text = Subject.ResponsePhysics(questionText.Text);
                         break;
                     }
-                case 5: //Digital - 2019
+                case 5: // Digital - 2019
                     {
                         answerText.Text = Subject.ResponseDigital(questionText.Text);
                         break;
                     }
+                case 6: // Computer Network - 2019
+                    {
+                        answerText.Text = Subject.ResponseComputerNetwork(questionText.Text);
+                        break;
+                    }
+                
                 default:
                     break;
             }
         }
-        #endregion
+        #endregion        
     }
 }
