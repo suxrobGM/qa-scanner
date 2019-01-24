@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -31,6 +32,9 @@ namespace QA_Scanner.Views
             trackBarKey_Minus.Pressed += (o, e) => { SubtractOpacity(); e.Handled = true; };
             trackBarKey_Minus.Register(this);
 
+            if (!Directory.Exists("Documents"))
+                Directory.CreateDirectory("Documents");
+
             _settings = new SettingsXml("Settings.xml");
             isAsyncFind.Checked = _settings.IsAsynchronousFinding;
             selectedSubject.SelectedItem = _settings.SelectedSubject;
@@ -48,7 +52,15 @@ namespace QA_Scanner.Views
                 return;
             }
 
-            FindAnswer();
+            try
+            {
+                FindAnswer();
+            }
+            catch (FileNotFoundException ex)
+            {
+                var customMessageBox = new CustomMessageBox(ex.Message, this.Opacity);
+                customMessageBox.ShowDialog();
+            }          
         }
 
         private void clearBtn_Click(object sender, EventArgs e)
@@ -80,7 +92,16 @@ namespace QA_Scanner.Views
 
         private void questionText_TextChanged(object sender, EventArgs e)
         {
-            FindAnswer();
+            try
+            {
+                if (isAsyncFind.Checked)
+                    FindAnswer();
+            }
+            catch (FileNotFoundException ex)
+            {
+                var customMessageBox = new CustomMessageBox(ex.Message, this.Opacity);
+                customMessageBox.ShowDialog();
+            }            
         }
 
         private void isAsyncFind_CheckedChanged(object sender, EventArgs e)
