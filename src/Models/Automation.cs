@@ -13,15 +13,15 @@ namespace QA_Scanner.Models
         private string _site;
         private string _username;
         private string _password;
-        private string _teacherPassword;
+        private string _teacherPassword;        
         private IWebDriver _webDriver;
 
-        public Automation(string username, string password, string teacherPassword = null)
+        public Automation(string username, string password)
         {
             _site = "http://moodle.samtuit.uz/login/index.php";
             _username = username;
             _password = password;
-            _teacherPassword = teacherPassword;
+            _teacherPassword = "";
 
             var chromeDriverService = ChromeDriverService.CreateDefaultService();
             chromeDriverService.HideCommandPromptWindow = true;
@@ -45,6 +45,46 @@ namespace QA_Scanner.Models
             {
                 throw new Exception(ex.Message);
             }
+        }
+
+        public void GoToSubjectTestPage(string teacherPassword, string subjectUrl)
+        {
+            _teacherPassword = teacherPassword;
+            _webDriver.Navigate().GoToUrl(subjectUrl);
+        }
+
+        public void AnswerToAllQuestions(Subject subject)
+        {           
+            var questionsList = _webDriver.FindElements(By.ClassName("qtext"));
+            foreach (var question in questionsList)
+            {
+                var answer = subject.ResponseComputerNetwork(question.Text);
+                if(CheckExistsElement($"//*[contains(text(), '{answer}')]"))
+                {
+                    var answerLabel = _webDriver.FindElement(By.XPath($"//*[contains(text(), '{answer}')]"));
+                    string answerInputId = answerLabel.GetAttribute("for");
+                    _webDriver.FindElement(By.Id(answerInputId)).Click();
+                }               
+            }
+        }
+
+        private bool CheckExistsElement(string xpath)
+        {
+            try
+            {
+                _webDriver.FindElement(By.XPath(xpath));
+            }
+            catch (NoSuchElementException)
+            {
+                return false;                
+            }
+
+            return true;
+        }
+
+        public void Test_GotoUrl(string url)
+        {
+            _webDriver.Navigate().GoToUrl(url);
         }
     }
 }

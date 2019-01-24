@@ -99,10 +99,12 @@ namespace QA_Scanner.Models
         public string ResponseComputerNetwork(string question)
         {
             question = question.ParseQA();
+            question = question.RemoveStartingDigits();
 
             foreach (var row in _docx.Tables[0].Rows)
             {
                 string questionLine = row.Cells[1].Paragraphs[0].Text.ParseQA();
+                questionLine = questionLine.RemoveStartingDigits();
 
                 if (questionLine.Contains(question))
                 {

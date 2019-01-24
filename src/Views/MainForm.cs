@@ -127,11 +127,18 @@ namespace QA_Scanner.Views
 
         private void startBtn_Click(object sender, EventArgs e)
         {
-            if (Login_TB.Text != String.Empty && Password_TB.Text != String.Empty)
-            {
-                var automation = new Automation(Login_TB.Text, Password_TB.Text);
+            if (usernameTB.Text != String.Empty && passwordTB.Text != String.Empty)
+            {                
+                var automation = new Automation(usernameTB.Text, passwordTB.Text);               
                 automation.SessionLogin();
+                automation.GoToSubjectTestPage(teacherPasswordTB.Text, subjectUrlTB.Text);
+                automation.AnswerToAllQuestions(_subject);
             }
+
+            // Experimental
+            //var automation = new Automation("di214-17-9", "Suxrobbek0729#");
+            //automation.Test_GotoUrl("file:///C:/Users/SuxrobGM/source/phishing/%D0%98%D1%82%D0%BE%D0%B3%D0%BE%D0%B2%D1%8B%D0%B9%20%D0%BA%D0%BE%D0%BD%D1%82%D1%80%D0%BE%D0%BB%D1%8C%20214%20%D0%B3%D1%80.html");
+            //automation.AnswerToAllQuestions(_subject);
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)

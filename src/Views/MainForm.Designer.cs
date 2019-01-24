@@ -46,17 +46,18 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.authorLink = new System.Windows.Forms.LinkLabel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.SubjectURL_TB = new System.Windows.Forms.TextBox();
+            this.subjectUrlTB = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.startBtn = new System.Windows.Forms.Button();
-            this.Teacher_Password_TB = new System.Windows.Forms.TextBox();
+            this.teacherPasswordTB = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.Password_TB = new System.Windows.Forms.TextBox();
+            this.passwordTB = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.siteLink = new System.Windows.Forms.LinkLabel();
-            this.Login_TB = new System.Windows.Forms.TextBox();
+            this.usernameTB = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.opacityTrack)).BeginInit();
             this.panel1.SuspendLayout();
@@ -276,16 +277,17 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.SubjectURL_TB);
+            this.tabPage2.Controls.Add(this.label1);
+            this.tabPage2.Controls.Add(this.subjectUrlTB);
             this.tabPage2.Controls.Add(this.label10);
             this.tabPage2.Controls.Add(this.startBtn);
-            this.tabPage2.Controls.Add(this.Teacher_Password_TB);
+            this.tabPage2.Controls.Add(this.teacherPasswordTB);
             this.tabPage2.Controls.Add(this.label9);
-            this.tabPage2.Controls.Add(this.Password_TB);
+            this.tabPage2.Controls.Add(this.passwordTB);
             this.tabPage2.Controls.Add(this.label8);
             this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.siteLink);
-            this.tabPage2.Controls.Add(this.Login_TB);
+            this.tabPage2.Controls.Add(this.usernameTB);
             this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
@@ -296,13 +298,13 @@
             this.tabPage2.Text = "Automation";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // SubjectURL_TB
+            // subjectUrlTB
             // 
-            this.SubjectURL_TB.Location = new System.Drawing.Point(11, 300);
-            this.SubjectURL_TB.Margin = new System.Windows.Forms.Padding(4);
-            this.SubjectURL_TB.Name = "SubjectURL_TB";
-            this.SubjectURL_TB.Size = new System.Drawing.Size(259, 22);
-            this.SubjectURL_TB.TabIndex = 10;
+            this.subjectUrlTB.Location = new System.Drawing.Point(11, 300);
+            this.subjectUrlTB.Margin = new System.Windows.Forms.Padding(4);
+            this.subjectUrlTB.Name = "subjectUrlTB";
+            this.subjectUrlTB.Size = new System.Drawing.Size(259, 22);
+            this.subjectUrlTB.TabIndex = 10;
             // 
             // label10
             // 
@@ -327,13 +329,13 @@
             this.startBtn.UseVisualStyleBackColor = true;
             this.startBtn.Click += new System.EventHandler(this.startBtn_Click);
             // 
-            // Teacher_Password_TB
+            // teacherPasswordTB
             // 
-            this.Teacher_Password_TB.Location = new System.Drawing.Point(11, 220);
-            this.Teacher_Password_TB.Margin = new System.Windows.Forms.Padding(4);
-            this.Teacher_Password_TB.Name = "Teacher_Password_TB";
-            this.Teacher_Password_TB.Size = new System.Drawing.Size(259, 22);
-            this.Teacher_Password_TB.TabIndex = 7;
+            this.teacherPasswordTB.Location = new System.Drawing.Point(11, 220);
+            this.teacherPasswordTB.Margin = new System.Windows.Forms.Padding(4);
+            this.teacherPasswordTB.Name = "teacherPasswordTB";
+            this.teacherPasswordTB.Size = new System.Drawing.Size(259, 22);
+            this.teacherPasswordTB.TabIndex = 7;
             // 
             // label9
             // 
@@ -346,13 +348,13 @@
             this.label9.TabIndex = 6;
             this.label9.Text = "Enter Teacher Password:";
             // 
-            // Password_TB
+            // passwordTB
             // 
-            this.Password_TB.Location = new System.Drawing.Point(11, 144);
-            this.Password_TB.Margin = new System.Windows.Forms.Padding(4);
-            this.Password_TB.Name = "Password_TB";
-            this.Password_TB.Size = new System.Drawing.Size(259, 22);
-            this.Password_TB.TabIndex = 5;
+            this.passwordTB.Location = new System.Drawing.Point(11, 144);
+            this.passwordTB.Margin = new System.Windows.Forms.Padding(4);
+            this.passwordTB.Name = "passwordTB";
+            this.passwordTB.Size = new System.Drawing.Size(259, 22);
+            this.passwordTB.TabIndex = 5;
             // 
             // label8
             // 
@@ -388,13 +390,13 @@
             this.siteLink.Text = "moodle.samtuit.uz";
             this.siteLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.siteLink_LinkClicked);
             // 
-            // Login_TB
+            // usernameTB
             // 
-            this.Login_TB.Location = new System.Drawing.Point(11, 85);
-            this.Login_TB.Margin = new System.Windows.Forms.Padding(4);
-            this.Login_TB.Name = "Login_TB";
-            this.Login_TB.Size = new System.Drawing.Size(259, 22);
-            this.Login_TB.TabIndex = 1;
+            this.usernameTB.Location = new System.Drawing.Point(11, 85);
+            this.usernameTB.Margin = new System.Windows.Forms.Padding(4);
+            this.usernameTB.Name = "usernameTB";
+            this.usernameTB.Size = new System.Drawing.Size(259, 22);
+            this.usernameTB.TabIndex = 1;
             // 
             // label5
             // 
@@ -403,9 +405,20 @@
             this.label5.Location = new System.Drawing.Point(11, 63);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(99, 18);
+            this.label5.Size = new System.Drawing.Size(135, 18);
             this.label5.TabIndex = 0;
-            this.label5.Text = "Enter Login:";
+            this.label5.Text = "Enter Username:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(314, 19);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(125, 17);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "EXPERIMENTAL";
             // 
             // MainForm
             // 
@@ -454,18 +467,19 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.LinkLabel siteLink;
-        private System.Windows.Forms.TextBox Login_TB;
+        private System.Windows.Forms.TextBox usernameTB;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button startBtn;
-        private System.Windows.Forms.TextBox Teacher_Password_TB;
+        private System.Windows.Forms.TextBox teacherPasswordTB;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox Password_TB;
+        private System.Windows.Forms.TextBox passwordTB;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox SubjectURL_TB;
+        private System.Windows.Forms.TextBox subjectUrlTB;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.CheckBox isAsyncFind;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.LinkLabel authorLink;
+        private System.Windows.Forms.Label label1;
     }
 }
 
