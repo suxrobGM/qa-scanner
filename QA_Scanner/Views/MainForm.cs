@@ -93,6 +93,11 @@ namespace QA_Scanner.Views
             _settings.SelectedSubject = selectedSubject.SelectedItem.ToString();
         }
 
+        private void authorLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://www.facebook.com/suxrobgm");
+        }
+
         private void siteLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start("http://moodle.samtuit.uz");
@@ -186,6 +191,6 @@ namespace QA_Scanner.Views
                     break;
             }
         }
-        #endregion        
+        #endregion       
     }
 }

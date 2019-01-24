@@ -37,7 +37,6 @@
             this.selectedSubject = new System.Windows.Forms.ComboBox();
             this.opacityLabel = new System.Windows.Forms.Label();
             this.opacityTrack = new System.Windows.Forms.TrackBar();
-            this.authorLabel = new System.Windows.Forms.Label();
             this.clearBtn = new System.Windows.Forms.Button();
             this.questionText = new System.Windows.Forms.TextBox();
             this.questionLabel = new System.Windows.Forms.Label();
@@ -46,7 +45,6 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label11 = new System.Windows.Forms.Label();
             this.SubjectURL_TB = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.startBtn = new System.Windows.Forms.Button();
@@ -58,6 +56,7 @@
             this.siteLink = new System.Windows.Forms.LinkLabel();
             this.Login_TB = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.authorLink = new System.Windows.Forms.LinkLabel();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.opacityTrack)).BeginInit();
             this.panel1.SuspendLayout();
@@ -169,23 +168,12 @@
             this.opacityTrack.Location = new System.Drawing.Point(250, 24);
             this.opacityTrack.Margin = new System.Windows.Forms.Padding(4);
             this.opacityTrack.Maximum = 100;
-            this.opacityTrack.Minimum = 10;
+            this.opacityTrack.Minimum = 5;
             this.opacityTrack.Name = "opacityTrack";
             this.opacityTrack.Size = new System.Drawing.Size(156, 56);
             this.opacityTrack.TabIndex = 4;
             this.opacityTrack.Value = 25;
             this.opacityTrack.Scroll += new System.EventHandler(this.opacityTrack_Scroll);
-            // 
-            // authorLabel
-            // 
-            this.authorLabel.AutoSize = true;
-            this.authorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.authorLabel.Location = new System.Drawing.Point(8, 89);
-            this.authorLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.authorLabel.Name = "authorLabel";
-            this.authorLabel.Size = new System.Drawing.Size(165, 17);
-            this.authorLabel.TabIndex = 6;
-            this.authorLabel.Text = "Developed by SuxrobGM";
             // 
             // clearBtn
             // 
@@ -261,7 +249,7 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.authorLabel);
+            this.panel3.Controls.Add(this.authorLink);
             this.panel3.Controls.Add(this.isAsyncFind);
             this.panel3.Controls.Add(this.selectedSubject);
             this.panel3.Controls.Add(this.subjectLabel);
@@ -277,7 +265,6 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.label11);
             this.tabPage2.Controls.Add(this.SubjectURL_TB);
             this.tabPage2.Controls.Add(this.label10);
             this.tabPage2.Controls.Add(this.startBtn);
@@ -297,17 +284,6 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Automation";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label11.Location = new System.Drawing.Point(11, 484);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(165, 17);
-            this.label11.TabIndex = 11;
-            this.label11.Text = "Developed by SuxrobGM";
             // 
             // SubjectURL_TB
             // 
@@ -331,7 +307,7 @@
             // startBtn
             // 
             this.startBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.startBtn.Location = new System.Drawing.Point(11, 452);
+            this.startBtn.Location = new System.Drawing.Point(11, 467);
             this.startBtn.Margin = new System.Windows.Forms.Padding(4);
             this.startBtn.Name = "startBtn";
             this.startBtn.Size = new System.Drawing.Size(109, 28);
@@ -420,6 +396,19 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Enter Login:";
             // 
+            // authorLink
+            // 
+            this.authorLink.AutoSize = true;
+            this.authorLink.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.authorLink.LinkColor = System.Drawing.Color.Black;
+            this.authorLink.Location = new System.Drawing.Point(8, 89);
+            this.authorLink.Name = "authorLink";
+            this.authorLink.Size = new System.Drawing.Size(165, 17);
+            this.authorLink.TabIndex = 12;
+            this.authorLink.TabStop = true;
+            this.authorLink.Text = "Developed by SuxrobGM";
+            this.authorLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.authorLink_LinkClicked);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -457,7 +446,6 @@
         private System.Windows.Forms.Label questionLabel;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button clearBtn;
-        private System.Windows.Forms.Label authorLabel;
         private System.Windows.Forms.TrackBar opacityTrack;
         private System.Windows.Forms.Label opacityLabel;
         private System.Windows.Forms.Label subjectLabel;
@@ -476,9 +464,9 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox SubjectURL_TB;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.CheckBox isAsyncFind;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.LinkLabel authorLink;
     }
 }
 
