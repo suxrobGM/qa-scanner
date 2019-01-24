@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Automation.cs" />
+    <Compile Include="Models\SettingsXml.cs" />
     <Compile Include="Models\StringHelper.cs" />
     <Compile Include="Views\CustomMessageBox.cs">
       <SubType>Form</SubType>

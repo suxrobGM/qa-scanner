@@ -28,18 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label2 = new System.Windows.Forms.Label();
-            this.Answer_TB = new System.Windows.Forms.TextBox();
-            this.Find_Btn = new System.Windows.Forms.Button();
+            this.answerLabel = new System.Windows.Forms.Label();
+            this.answerText = new System.Windows.Forms.TextBox();
+            this.findBtn = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
-            this.label3 = new System.Windows.Forms.Label();
-            this.Clear_Btn = new System.Windows.Forms.Button();
-            this.Question_TB = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.isAsyncFind = new System.Windows.Forms.CheckBox();
+            this.subjectLabel = new System.Windows.Forms.Label();
+            this.selectedSubject = new System.Windows.Forms.ComboBox();
+            this.opacityLabel = new System.Windows.Forms.Label();
+            this.opacityTrack = new System.Windows.Forms.TrackBar();
+            this.authorLabel = new System.Windows.Forms.Label();
+            this.clearBtn = new System.Windows.Forms.Button();
+            this.questionText = new System.Windows.Forms.TextBox();
+            this.questionLabel = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -53,174 +54,180 @@
             this.Password_TB = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.siteLink = new System.Windows.Forms.LinkLabel();
             this.Login_TB = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.opacityTrack)).BeginInit();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label2
+            // answerLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(11, 4);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 20);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Answer:";
+            this.answerLabel.AutoSize = true;
+            this.answerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.answerLabel.Location = new System.Drawing.Point(11, 4);
+            this.answerLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.answerLabel.Name = "answerLabel";
+            this.answerLabel.Size = new System.Drawing.Size(77, 20);
+            this.answerLabel.TabIndex = 3;
+            this.answerLabel.Text = "Answer:";
             // 
-            // Answer_TB
+            // answerText
             // 
-            this.Answer_TB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Answer_TB.Location = new System.Drawing.Point(15, 28);
-            this.Answer_TB.Margin = new System.Windows.Forms.Padding(4);
-            this.Answer_TB.Multiline = true;
-            this.Answer_TB.Name = "Answer_TB";
-            this.Answer_TB.Size = new System.Drawing.Size(811, 146);
-            this.Answer_TB.TabIndex = 2;
+            this.answerText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.answerText.Location = new System.Drawing.Point(11, 28);
+            this.answerText.Margin = new System.Windows.Forms.Padding(4);
+            this.answerText.Multiline = true;
+            this.answerText.Name = "answerText";
+            this.answerText.Size = new System.Drawing.Size(514, 146);
+            this.answerText.TabIndex = 2;
             // 
-            // Find_Btn
+            // findBtn
             // 
-            this.Find_Btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Find_Btn.Location = new System.Drawing.Point(621, 224);
-            this.Find_Btn.Margin = new System.Windows.Forms.Padding(4);
-            this.Find_Btn.Name = "Find_Btn";
-            this.Find_Btn.Size = new System.Drawing.Size(100, 28);
-            this.Find_Btn.TabIndex = 4;
-            this.Find_Btn.Text = "Find";
-            this.Find_Btn.UseVisualStyleBackColor = true;
-            this.Find_Btn.Click += new System.EventHandler(this.Find_Btn_Click);
+            this.findBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.findBtn.Location = new System.Drawing.Point(425, 24);
+            this.findBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.findBtn.Name = "findBtn";
+            this.findBtn.Size = new System.Drawing.Size(100, 28);
+            this.findBtn.TabIndex = 4;
+            this.findBtn.Text = "Find";
+            this.findBtn.UseVisualStyleBackColor = true;
+            this.findBtn.Click += new System.EventHandler(this.Find_Btn_Click);
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.checkBox1);
-            this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.comboBox1);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.trackBar1);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.Clear_Btn);
-            this.panel2.Controls.Add(this.Answer_TB);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.Find_Btn);
-            this.panel2.Location = new System.Drawing.Point(8, 238);
+            this.panel2.Controls.Add(this.answerText);
+            this.panel2.Controls.Add(this.answerLabel);
+            this.panel2.Location = new System.Drawing.Point(4, 206);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(844, 271);
+            this.panel2.Size = new System.Drawing.Size(540, 185);
             this.panel2.TabIndex = 6;
             // 
-            // label6
+            // isAsyncFind
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(201, 183);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(69, 18);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Subject:";
+            this.isAsyncFind.AutoSize = true;
+            this.isAsyncFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.isAsyncFind.Location = new System.Drawing.Point(11, 55);
+            this.isAsyncFind.Name = "isAsyncFind";
+            this.isAsyncFind.Size = new System.Drawing.Size(164, 21);
+            this.isAsyncFind.TabIndex = 11;
+            this.isAsyncFind.Text = "Asynchronous find";
+            this.isAsyncFind.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // subjectLabel
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Physics - 2018",
+            this.subjectLabel.AutoSize = true;
+            this.subjectLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.subjectLabel.Location = new System.Drawing.Point(8, 2);
+            this.subjectLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.subjectLabel.Name = "subjectLabel";
+            this.subjectLabel.Size = new System.Drawing.Size(69, 18);
+            this.subjectLabel.TabIndex = 10;
+            this.subjectLabel.Text = "Subject:";
+            // 
+            // selectedSubject
+            // 
+            this.selectedSubject.FormattingEnabled = true;
+            this.selectedSubject.Items.AddRange(new object[] {
+            "Manual",
             "English - 2018",
             "Ecology - 2018",
             "Data Structure - 2018",
-            "Computer Network - 2019",
-            "Digital - 2019"});
-            this.comboBox1.Location = new System.Drawing.Point(204, 212);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(217, 24);
-            this.comboBox1.TabIndex = 8;
+            "Physics - 2018",
+            "Digital - 2019",
+            "Computer Network - 2019"});
+            this.selectedSubject.Location = new System.Drawing.Point(11, 24);
+            this.selectedSubject.Margin = new System.Windows.Forms.Padding(4);
+            this.selectedSubject.Name = "selectedSubject";
+            this.selectedSubject.Size = new System.Drawing.Size(217, 24);
+            this.selectedSubject.TabIndex = 8;
             // 
-            // label4
+            // opacityLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(457, 183);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(70, 18);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Opacity:";
+            this.opacityLabel.AutoSize = true;
+            this.opacityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.opacityLabel.Location = new System.Drawing.Point(247, 2);
+            this.opacityLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.opacityLabel.Name = "opacityLabel";
+            this.opacityLabel.Size = new System.Drawing.Size(70, 18);
+            this.opacityLabel.TabIndex = 7;
+            this.opacityLabel.Text = "Opacity:";
             // 
-            // trackBar1
+            // opacityTrack
             // 
-            this.trackBar1.LargeChange = 10;
-            this.trackBar1.Location = new System.Drawing.Point(457, 212);
-            this.trackBar1.Margin = new System.Windows.Forms.Padding(4);
-            this.trackBar1.Maximum = 100;
-            this.trackBar1.Minimum = 10;
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(156, 56);
-            this.trackBar1.TabIndex = 4;
-            this.trackBar1.Value = 25;
-            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
+            this.opacityTrack.LargeChange = 10;
+            this.opacityTrack.Location = new System.Drawing.Point(250, 24);
+            this.opacityTrack.Margin = new System.Windows.Forms.Padding(4);
+            this.opacityTrack.Maximum = 100;
+            this.opacityTrack.Minimum = 10;
+            this.opacityTrack.Name = "opacityTrack";
+            this.opacityTrack.Size = new System.Drawing.Size(156, 56);
+            this.opacityTrack.TabIndex = 4;
+            this.opacityTrack.Value = 25;
+            this.opacityTrack.Scroll += new System.EventHandler(this.opacityTrack_Scroll);
             // 
-            // label3
+            // authorLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(11, 231);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(165, 17);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Developed by SuxrobGM";
+            this.authorLabel.AutoSize = true;
+            this.authorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.authorLabel.Location = new System.Drawing.Point(8, 89);
+            this.authorLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.authorLabel.Name = "authorLabel";
+            this.authorLabel.Size = new System.Drawing.Size(165, 17);
+            this.authorLabel.TabIndex = 6;
+            this.authorLabel.Text = "Developed by SuxrobGM";
             // 
-            // Clear_Btn
+            // clearBtn
             // 
-            this.Clear_Btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Clear_Btn.Location = new System.Drawing.Point(727, 224);
-            this.Clear_Btn.Margin = new System.Windows.Forms.Padding(4);
-            this.Clear_Btn.Name = "Clear_Btn";
-            this.Clear_Btn.Size = new System.Drawing.Size(100, 28);
-            this.Clear_Btn.TabIndex = 5;
-            this.Clear_Btn.Text = "Clear";
-            this.Clear_Btn.UseVisualStyleBackColor = true;
-            this.Clear_Btn.Click += new System.EventHandler(this.Clear_Btn_Click);
+            this.clearBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.clearBtn.Location = new System.Drawing.Point(425, 55);
+            this.clearBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.clearBtn.Name = "clearBtn";
+            this.clearBtn.Size = new System.Drawing.Size(100, 28);
+            this.clearBtn.TabIndex = 5;
+            this.clearBtn.Text = "Clear";
+            this.clearBtn.UseVisualStyleBackColor = true;
+            this.clearBtn.Click += new System.EventHandler(this.Clear_Btn_Click);
             // 
-            // Question_TB
+            // questionText
             // 
-            this.Question_TB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Question_TB.Location = new System.Drawing.Point(15, 37);
-            this.Question_TB.Margin = new System.Windows.Forms.Padding(4);
-            this.Question_TB.Multiline = true;
-            this.Question_TB.Name = "Question_TB";
-            this.Question_TB.Size = new System.Drawing.Size(811, 146);
-            this.Question_TB.TabIndex = 1;
-            this.Question_TB.TextChanged += new System.EventHandler(this.Question_TB_TextChanged);
-            this.Question_TB.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Question_TB_KeyDown);
+            this.questionText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.questionText.Location = new System.Drawing.Point(11, 36);
+            this.questionText.Margin = new System.Windows.Forms.Padding(4);
+            this.questionText.Multiline = true;
+            this.questionText.Name = "questionText";
+            this.questionText.Size = new System.Drawing.Size(514, 146);
+            this.questionText.TabIndex = 1;
+            this.questionText.TextChanged += new System.EventHandler(this.questionText_TextChanged);
+            this.questionText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Question_TB_KeyDown);
             // 
-            // label1
+            // questionLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(11, 12);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 20);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Question:";
+            this.questionLabel.AutoSize = true;
+            this.questionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.questionLabel.Location = new System.Drawing.Point(11, 12);
+            this.questionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.questionLabel.Name = "questionLabel";
+            this.questionLabel.Size = new System.Drawing.Size(90, 20);
+            this.questionLabel.TabIndex = 3;
+            this.questionLabel.Text = "Question:";
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.Question_TB);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(8, 16);
+            this.panel1.Controls.Add(this.questionText);
+            this.panel1.Controls.Add(this.questionLabel);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(4, 4);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(844, 203);
+            this.panel1.Size = new System.Drawing.Size(540, 194);
             this.panel1.TabIndex = 5;
             // 
             // tabControl1
@@ -232,18 +239,19 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(876, 549);
+            this.tabControl1.Size = new System.Drawing.Size(556, 533);
             this.tabControl1.TabIndex = 7;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.panel3);
             this.tabPage1.Controls.Add(this.panel1);
             this.tabPage1.Controls.Add(this.panel2);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Size = new System.Drawing.Size(868, 520);
+            this.tabPage1.Size = new System.Drawing.Size(548, 504);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Manual";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -259,7 +267,7 @@
             this.tabPage2.Controls.Add(this.Password_TB);
             this.tabPage2.Controls.Add(this.label8);
             this.tabPage2.Controls.Add(this.label7);
-            this.tabPage2.Controls.Add(this.linkLabel1);
+            this.tabPage2.Controls.Add(this.siteLink);
             this.tabPage2.Controls.Add(this.Login_TB);
             this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
@@ -362,17 +370,17 @@
             this.label7.TabIndex = 3;
             this.label7.Text = "Site:";
             // 
-            // linkLabel1
+            // siteLink
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(51, 20);
-            this.linkLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(122, 17);
-            this.linkLabel1.TabIndex = 2;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "moodle.samtuit.uz";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.siteLink.AutoSize = true;
+            this.siteLink.Location = new System.Drawing.Point(51, 20);
+            this.siteLink.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.siteLink.Name = "siteLink";
+            this.siteLink.Size = new System.Drawing.Size(122, 17);
+            this.siteLink.TabIndex = 2;
+            this.siteLink.TabStop = true;
+            this.siteLink.Text = "moodle.samtuit.uz";
+            this.siteLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.siteLink_LinkClicked);
             // 
             // Login_TB
             // 
@@ -393,22 +401,27 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Enter Login:";
             // 
-            // checkBox1
+            // panel3
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBox1.Location = new System.Drawing.Point(204, 243);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(164, 21);
-            this.checkBox1.TabIndex = 11;
-            this.checkBox1.Text = "Asynchronous find";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.panel3.Controls.Add(this.authorLabel);
+            this.panel3.Controls.Add(this.isAsyncFind);
+            this.panel3.Controls.Add(this.selectedSubject);
+            this.panel3.Controls.Add(this.subjectLabel);
+            this.panel3.Controls.Add(this.clearBtn);
+            this.panel3.Controls.Add(this.findBtn);
+            this.panel3.Controls.Add(this.opacityTrack);
+            this.panel3.Controls.Add(this.opacityLabel);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(4, 393);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(540, 107);
+            this.panel3.TabIndex = 12;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(876, 549);
+            this.ClientSize = new System.Drawing.Size(556, 533);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -419,36 +432,38 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.opacityTrack)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox Answer_TB;
-        private System.Windows.Forms.Button Find_Btn;
+        private System.Windows.Forms.Label answerLabel;
+        private System.Windows.Forms.TextBox answerText;
+        private System.Windows.Forms.Button findBtn;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox Question_TB;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox questionText;
+        private System.Windows.Forms.Label questionLabel;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button Clear_Btn;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TrackBar trackBar1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button clearBtn;
+        private System.Windows.Forms.Label authorLabel;
+        private System.Windows.Forms.TrackBar opacityTrack;
+        private System.Windows.Forms.Label opacityLabel;
+        private System.Windows.Forms.Label subjectLabel;
+        private System.Windows.Forms.ComboBox selectedSubject;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel siteLink;
         private System.Windows.Forms.TextBox Login_TB;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button Start_Btn;
@@ -459,7 +474,8 @@
         private System.Windows.Forms.TextBox SubjectURL_TB;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox isAsyncFind;
+        private System.Windows.Forms.Panel panel3;
     }
 }
 
