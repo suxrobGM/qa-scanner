@@ -44,6 +44,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.authorLink = new System.Windows.Forms.LinkLabel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.SubjectURL_TB = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -56,7 +57,6 @@
             this.siteLink = new System.Windows.Forms.LinkLabel();
             this.Login_TB = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.authorLink = new System.Windows.Forms.LinkLabel();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.opacityTrack)).BeginInit();
             this.panel1.SuspendLayout();
@@ -137,13 +137,11 @@
             this.selectedSubject.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.selectedSubject.FormattingEnabled = true;
             this.selectedSubject.Items.AddRange(new object[] {
-            "Manual Table Method",
-            "English - 2018",
-            "Ecology - 2018",
-            "Data Structure - 2018",
-            "Physics - 2018",
-            "Digital - 2019",
-            "Computer Network - 2019"});
+            "ManualTableMethod.docx",
+            "English_2018.docx",
+            "DataStructure_2018.docx",
+            "Digital_2019.docx",
+            "ComputerNetwork_2019.docx"});
             this.selectedSubject.Location = new System.Drawing.Point(11, 24);
             this.selectedSubject.Margin = new System.Windows.Forms.Padding(4);
             this.selectedSubject.Name = "selectedSubject";
@@ -196,7 +194,6 @@
             this.questionText.Name = "questionText";
             this.questionText.Size = new System.Drawing.Size(514, 146);
             this.questionText.TabIndex = 1;
-            this.questionText.TextChanged += new System.EventHandler(this.questionText_TextChanged);
             this.questionText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.questionText_KeyDown);
             // 
             // questionLabel
@@ -262,6 +259,20 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(540, 107);
             this.panel3.TabIndex = 12;
+            // 
+            // authorLink
+            // 
+            this.authorLink.AutoSize = true;
+            this.authorLink.BackColor = System.Drawing.Color.Transparent;
+            this.authorLink.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.authorLink.LinkColor = System.Drawing.Color.Black;
+            this.authorLink.Location = new System.Drawing.Point(8, 89);
+            this.authorLink.Name = "authorLink";
+            this.authorLink.Size = new System.Drawing.Size(165, 17);
+            this.authorLink.TabIndex = 12;
+            this.authorLink.TabStop = true;
+            this.authorLink.Text = "Developed by SuxrobGM";
+            this.authorLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.authorLink_LinkClicked);
             // 
             // tabPage2
             // 
@@ -395,19 +406,6 @@
             this.label5.Size = new System.Drawing.Size(99, 18);
             this.label5.TabIndex = 0;
             this.label5.Text = "Enter Login:";
-            // 
-            // authorLink
-            // 
-            this.authorLink.AutoSize = true;
-            this.authorLink.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.authorLink.LinkColor = System.Drawing.Color.Black;
-            this.authorLink.Location = new System.Drawing.Point(8, 89);
-            this.authorLink.Name = "authorLink";
-            this.authorLink.Size = new System.Drawing.Size(165, 17);
-            this.authorLink.TabIndex = 12;
-            this.authorLink.TabStop = true;
-            this.authorLink.Text = "Developed by SuxrobGM";
-            this.authorLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.authorLink_LinkClicked);
             // 
             // MainForm
             // 

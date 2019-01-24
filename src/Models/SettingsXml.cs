@@ -92,7 +92,7 @@ namespace QA_Scanner.Models
 
         private void SetDefaultSettings()
         {
-            _selectedSubject = "Manual Table Method";
+            _selectedSubject = "ManualTableMethod.docx";
             _isAsynchronousFinding = true;
             _opacity = 1.0;
 
