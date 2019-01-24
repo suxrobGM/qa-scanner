@@ -10,9 +10,10 @@ namespace QA_Scanner.Models
 {
     public static class Subject
     {        
-        public const string questionNotFound = "Question was not found";      
+        private const string questionNotFound = "Question was not found";
+        private const string answerNotFound = "The answer of this question was not found";
 
-        public static string FindResponseEcology(string question, string firstDocFile = "Documents\\Ecology_1_2018.docx", string secondDocFile = "Documents\\Ecology_2_2018.docx")
+        public static string ResponseEcology(string question, string firstDocFile = "Documents\\Ecology_1_2018.docx", string secondDocFile = "Documents\\Ecology_2_2018.docx")
         {
             bool MatchQuestion_in_FirstDocx = false;
             bool MatchQuestion_in_SecondDocx = false;
@@ -71,7 +72,7 @@ namespace QA_Scanner.Models
             return questionNotFound;           
         }
 
-        public static string FindResponseEnglish(string question, string docFile = "Documents\\English_2018.docx")
+        public static string ResponseEnglish(string question, string docFile = "Documents\\English_2018.docx")
         {           
             question = question.ParseQA();            
 
@@ -110,7 +111,7 @@ namespace QA_Scanner.Models
             return questionNotFound;
         }
 
-        public static string FindResponsePhysics(string question, string docFile = "Documents\\PhysicsQA_2018.txt")
+        public static string ResponsePhysics(string question, string docFile = "Documents\\PhysicsQA_2018.txt")
         {
             question = question.ParseQA();
             string[] buffer = File.ReadAllLines(docFile);
@@ -135,7 +136,7 @@ namespace QA_Scanner.Models
             return questionNotFound;
         }
 
-        public static string FindResponseStructure(string question, string docFile = "Documents\\DataStructure_2018.docx")
+        public static string ResponseStructure(string question, string docFile = "Documents\\DataStructure_2018.docx")
         {
             question = question.ParseQA();
 
@@ -174,17 +175,14 @@ namespace QA_Scanner.Models
             return questionNotFound;
         }
 
-        public static string FindResponseComputerNetwork(string question, string docFile = "Documents\\ComputerNetwork_2019.docx")
+        public static string ResponseComputerNetwork(string question, string docFile = "Documents\\ComputerNetwork_2019.docx")
         {
             question = question.ParseQA();
 
             using (var docx = DocX.Load(docFile))
-            {
-                int i = 0;
-                //docx.Tables[0].Rows.Select(i => i.Cells[1].Paragraphs);
+            {             
                 foreach (var row in docx.Tables[0].Rows)
-                {
-                    i++;
+                {                   
                     string questionLine = row.Cells[1].Paragraphs[0].Text.ParseQA();
                     
                     if (questionLine.Contains(question))
@@ -192,6 +190,40 @@ namespace QA_Scanner.Models
                         
                         return row.Cells[2].Paragraphs[0].Text;
                     }
+                }
+            }
+
+            return questionNotFound;
+        }
+
+        public static string ResponseDigital(string question, string docFile = "Documents\\Digital_2019.docx")
+        {
+            question = question.ParseQA();
+            question = question.RemoveStartingDigits();
+
+            using (var docx = DocX.Load(docFile))
+            {
+                int i = 0;
+                foreach (var p in docx.Paragraphs)
+                {
+                    string questionLine = p.Text.ParseQA();
+                    questionLine = questionLine.RemoveStartingDigits();
+
+                    if (questionLine.Contains(question) && (i+5) < docx.Paragraphs.Count)
+                    {
+                        for (int j = 1; j < 5; j++)
+                        {
+                            var answers = docx.Paragraphs[i + j].MagicText.Where(x => x.formatting.UnderlineStyle == UnderlineStyle.singleLine).Select(x => x.text);
+                            if (answers.Any())
+                            {
+                                return answers.First();
+                            }
+                        }
+
+                        return answerNotFound;
+                    }
+
+                    i++;
                 }
             }
 

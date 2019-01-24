@@ -33,11 +33,22 @@ namespace QA_Scanner.Views
             double opacity = this.Opacity;
             trackBar1.Value = (int)(opacity * 100.0);
 
-            comboBox1.SelectedIndex = 4;
+            comboBox1.SelectedIndex = 5;
         }
 
+        #region Event methods
         private void Find_Btn_Click(object sender, EventArgs e)
         {
+            if (Question_TB.Text == String.Empty)
+            {
+                CustomMessageBox customMessageBox = new CustomMessageBox();
+                customMessageBox.Opacity = this.Opacity;
+                customMessageBox.SetText("Please enter the question string then click find button");
+                customMessageBox.StartPosition = FormStartPosition.CenterParent;
+                customMessageBox.ShowDialog();
+                return;
+            }
+
             FindAnswer();
         }
 
@@ -54,15 +65,15 @@ namespace QA_Scanner.Views
 
         private void Question_TB_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == System.Windows.Forms.Keys.A && e.Control)
+            if(e.KeyCode == Keys.A && e.Control)
             {
                 Question_TB.SelectAll();
                 e.SuppressKeyPress = true;
             }
 
-            if (e.KeyData == System.Windows.Forms.Keys.Enter)
+            if (e.KeyData == Keys.Enter)
             {
-                FindAnswer();
+                Find_Btn_Click(sender, e);
                 e.SuppressKeyPress = true;
             }
         }
@@ -81,7 +92,18 @@ namespace QA_Scanner.Views
             }
         }
 
-        
+        private void Question_TB_TextChanged(object sender, EventArgs e)
+        {
+            FindAnswer();
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            hkey.Dispose();
+        }
+        #endregion
+
+        #region Private methods
         private void SetVisible()
         {
             if (this.Visible)
@@ -110,51 +132,44 @@ namespace QA_Scanner.Views
 
         private void FindAnswer()
         {
-            if (Question_TB.Text == String.Empty)
-            {
-                CustomMessageBox customMessageBox = new CustomMessageBox();
-                customMessageBox.Opacity = this.Opacity;
-                customMessageBox.SetText("Please enter the question string then click find button");
-                customMessageBox.StartPosition = FormStartPosition.CenterParent;
-                customMessageBox.ShowDialog();
-                return;
-            }
+            
 
             switch (comboBox1.SelectedIndex)
             {
                 case 0: //Physics
                     {
-                        Answer_TB.Text = Subject.FindResponsePhysics(Question_TB.Text);
+                        Answer_TB.Text = Subject.ResponsePhysics(Question_TB.Text);
                         break;
                     }
                 case 1: //English
                     {
-                        Answer_TB.Text = Subject.FindResponseEnglish(Question_TB.Text);
+                        Answer_TB.Text = Subject.ResponseEnglish(Question_TB.Text);
                         break;
                     }
                 case 2: //Ecology
                     {
-                        Answer_TB.Text = Subject.FindResponseEcology(Question_TB.Text);
+                        Answer_TB.Text = Subject.ResponseEcology(Question_TB.Text);
                         break;
                     }
                 case 3: //Data Structure 2018
                     {
-                        Answer_TB.Text = Subject.FindResponseStructure(Question_TB.Text);
+                        Answer_TB.Text = Subject.ResponseStructure(Question_TB.Text);
                         break;
                     }
                 case 4: //Computer Network 2019
                     {
-                        Answer_TB.Text = Subject.FindResponseComputerNetwork(Question_TB.Text);
+                        Answer_TB.Text = Subject.ResponseComputerNetwork(Question_TB.Text);
+                        break;
+                    }
+                case 5: //Digital 2019
+                    {
+                        Answer_TB.Text = Subject.ResponseDigital(Question_TB.Text);
                         break;
                     }
                 default:
                     break;
             }
         }
-
-        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            hkey.Dispose();
-        }
+        #endregion               
     }
 }

@@ -133,7 +133,8 @@
             "English - 2018",
             "Ecology - 2018",
             "Data Structure - 2018",
-            "Computer Network - 2019"});
+            "Computer Network - 2019",
+            "Digital - 2019"});
             this.comboBox1.Location = new System.Drawing.Point(204, 212);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
@@ -196,6 +197,7 @@
             this.Question_TB.Name = "Question_TB";
             this.Question_TB.Size = new System.Drawing.Size(811, 146);
             this.Question_TB.TabIndex = 1;
+            this.Question_TB.TextChanged += new System.EventHandler(this.Question_TB_TextChanged);
             this.Question_TB.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Question_TB_KeyDown);
             // 
             // label1

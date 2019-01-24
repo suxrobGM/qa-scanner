@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace QA_Scanner.Models
@@ -27,6 +28,17 @@ namespace QA_Scanner.Models
             questionOrAnswerString = questionOrAnswerString.Trim();
 
             return questionOrAnswerString;
+        }
+
+        public static string RemoveStartingDigits(this string str)
+        {
+            if (Regex.IsMatch(str, @"^\d+"))
+            {
+                int numlength = Regex.Match(str, @"^\d+").Length;
+                str = str.Remove(0, numlength);
+            }
+
+            return str;
         }
     }
 }
