@@ -15,6 +15,24 @@ namespace QA_Scanner.Views
         public CustomMessageBox()
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterParent;
+        }
+
+        public CustomMessageBox(string messageText)
+        {
+            InitializeComponent();
+
+            textBox1.Text = messageText;
+            StartPosition = FormStartPosition.CenterParent;
+        }
+
+        public CustomMessageBox(string messageText, double opacity)
+        {
+            InitializeComponent();
+
+            textBox1.Text = messageText;
+            this.Opacity = opacity;
+            StartPosition = FormStartPosition.CenterParent;
         }
 
         private void OK_Btn_Click(object sender, EventArgs e)
@@ -22,9 +40,9 @@ namespace QA_Scanner.Views
             this.Close();
         }
 
-        public void SetText(string Text)
+        public void SetText(string messageText)
         {
-            textBox1.Text = Text;
+            textBox1.Text = messageText;
         }
     }
 }

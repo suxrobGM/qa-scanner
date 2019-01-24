@@ -40,11 +40,8 @@ namespace QA_Scanner.Views
         private void Find_Btn_Click(object sender, EventArgs e)
         {
             if (Question_TB.Text == String.Empty)
-            {
-                CustomMessageBox customMessageBox = new CustomMessageBox();
-                customMessageBox.Opacity = this.Opacity;
-                customMessageBox.SetText("Please enter the question string then click find button");
-                customMessageBox.StartPosition = FormStartPosition.CenterParent;
+            {                
+                var customMessageBox = new CustomMessageBox("Please enter the question string then click find button", this.Opacity);               
                 customMessageBox.ShowDialog();
                 return;
             }
