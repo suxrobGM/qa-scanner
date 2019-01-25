@@ -7,13 +7,14 @@ using System.IO;
 using Xceed.Words.NET;
 
 namespace QA_Scanner.Models
-{
+{   
     public class Subject
-    {        
-        private const string questionNotFound = "Question was not found";
-        private const string answerNotFound = "The answer of this question was not found";
+    {               
         private readonly string _docFile;
         private readonly DocX _docx;
+
+        public const string questionNotFound = "Question was not found";
+        public const string answerNotFound = "The answer of this question was not found";
 
         public Subject(string docFile)
         {
@@ -67,7 +68,7 @@ namespace QA_Scanner.Models
             return questionNotFound;
         }        
 
-        public string ResponseStructure(string question)
+        public string ResponseDataStructure(string question)
         {
             question = question.ParseQA();
 

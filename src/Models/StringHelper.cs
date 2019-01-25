@@ -12,7 +12,7 @@ namespace QA_Scanner.Models
         private static readonly string[] extraChars = {
             Convert.ToChar(160).ToString(),
             Environment.NewLine,
-            " ", ",", ".", "!", "?", ":", "_", "-",
+            " ", ",", ".", "!", "?", ":", "_", "-"
         };
 
         public static string RemoverStrs(this string str, string[] removeStrs)

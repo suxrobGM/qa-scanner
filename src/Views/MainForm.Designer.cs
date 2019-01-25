@@ -58,6 +58,7 @@
             this.usernameTB = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.automationLog = new System.Windows.Forms.ListBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.opacityTrack)).BeginInit();
             this.panel1.SuspendLayout();
@@ -277,6 +278,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.automationLog);
             this.tabPage2.Controls.Add(this.label1);
             this.tabPage2.Controls.Add(this.subjectUrlTB);
             this.tabPage2.Controls.Add(this.label10);
@@ -420,6 +422,15 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "EXPERIMENTAL";
             // 
+            // automationLog
+            // 
+            this.automationLog.FormattingEnabled = true;
+            this.automationLog.ItemHeight = 16;
+            this.automationLog.Location = new System.Drawing.Point(295, 63);
+            this.automationLog.Name = "automationLog";
+            this.automationLog.Size = new System.Drawing.Size(236, 420);
+            this.automationLog.TabIndex = 12;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -480,6 +491,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.LinkLabel authorLink;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ListBox automationLog;
     }
 }
 

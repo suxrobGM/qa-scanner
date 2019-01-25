@@ -23,6 +23,7 @@ namespace QA_Scanner.Views
         private HotKey trackBarKey_Minus = new HotKey(Keys.Divide, KeyModifiers.None);
         private SettingsXml _settings;
         private Subject _subject;
+        private Automation _automation;
 
         public MainForm()
         {
@@ -46,6 +47,9 @@ namespace QA_Scanner.Views
             opacityTrack.Value = (int)(Opacity * 100.0); 
             
             questionText.DataBindings.Add("Text", this, "QuestionText", false, DataSourceUpdateMode.OnPropertyChanged);
+
+            _automation = new Automation();            
+            automationLog.DataSource = _automation.LogList;
             SetSubject(_settings.SelectedSubject);
         }
 
@@ -129,16 +133,20 @@ namespace QA_Scanner.Views
         {
             if (usernameTB.Text != String.Empty && passwordTB.Text != String.Empty)
             {                
-                var automation = new Automation(usernameTB.Text, passwordTB.Text);               
-                automation.SessionLogin();
-                automation.GoToSubjectTestPage(teacherPasswordTB.Text, subjectUrlTB.Text);
-                automation.AnswerToAllQuestions(_subject);
+                _automation.OpenChrome();
+                _automation.Username = usernameTB.Text;
+                _automation.Password = passwordTB.Text;
+                _automation.SessionLogin();
+                _automation.GoToSubjectTestPage(teacherPasswordTB.Text, subjectUrlTB.Text);
+                _automation.AnswerToAllQuestions(_subject, GetResponseAlgorithm());
             }
 
             // Experimental
-            //var automation = new Automation("di214-17-9", "Suxrobbek0729#");
-            //automation.Test_GotoUrl("file:///C:/Users/SuxrobGM/source/phishing/%D0%98%D1%82%D0%BE%D0%B3%D0%BE%D0%B2%D1%8B%D0%B9%20%D0%BA%D0%BE%D0%BD%D1%82%D1%80%D0%BE%D0%BB%D1%8C%20214%20%D0%B3%D1%80.html");
-            //automation.AnswerToAllQuestions(_subject);
+            //_automation.OpenChrome();
+            //_automation.Username = "di214-17-9";
+            //_automation.Password = "Suxrobbek0729#";
+            //_automation.Test_GotoUrl("file:///C:/Users/SuxrobGM/source/phishing/%D0%98%D1%82%D0%BE%D0%B3%D0%BE%D0%B2%D1%8B%D0%B9%20%D0%BA%D0%BE%D0%BD%D1%82%D1%80%D0%BE%D0%BB%D1%8C%20214%20%D0%B3%D1%80.html");
+            //_automation.AnswerToAllQuestions(_subject);            
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -205,7 +213,7 @@ namespace QA_Scanner.Views
                     }               
                 case 2: // DataStructure_2018.docx
                     {
-                        answerText.Text = _subject.ResponseStructure(questionText.Text);
+                        answerText.Text = _subject.ResponseDataStructure(questionText.Text);
                         break;
                     }                
                 case 3: // Digital_2019.docx
@@ -221,6 +229,37 @@ namespace QA_Scanner.Views
                 
                 default:
                     break;
+            }
+        }
+
+        private Automation.ResponseAlgorithm GetResponseAlgorithm()
+        {
+            switch (selectedSubject.SelectedIndex)
+            {
+                case 0: // ManualTableMethod.docx
+                    {
+                        return _subject.ResponseManualTableMethod;                        
+                    }
+                case 1: // English_2018.docx
+                    {
+                        return _subject.ResponseEnglish;                       
+                    }
+                case 2: // DataStructure_2018.docx
+                    {
+                        return _subject.ResponseDataStructure;                        
+                    }
+                case 3: // Digital_2019.docx
+                    {
+                        return _subject.ResponseDigital;                        
+                    }
+                case 4: // ComputerNetwork_2019.docx
+                    {
+                        return _subject.ResponseComputerNetwork;                        
+                    }
+
+                default:
+                    return _subject.ResponseManualTableMethod;
+
             }
         }
         #endregion

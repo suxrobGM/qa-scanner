@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,19 +11,29 @@ namespace QA_Scanner.Models
 {
     public class Automation
     {
-        private string _site;
-        private string _username;
-        private string _password;
+        private string _site;        
         private string _teacherPassword;        
         private IWebDriver _webDriver;
 
-        public Automation(string username, string password)
+
+        public BindingList<string> LogList { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+
+        public delegate string ResponseAlgorithm(string question);
+
+        public Automation(string username = null, string password = null)
         {
             _site = "http://moodle.samtuit.uz/login/index.php";
-            _username = username;
-            _password = password;
+            Username = username;
+            Password = password;
             _teacherPassword = "";
+            
+            LogList = new BindingList<string>();
+        }
 
+        public void OpenChrome()
+        {
             var chromeDriverService = ChromeDriverService.CreateDefaultService();
             chromeDriverService.HideCommandPromptWindow = true;
             _webDriver = new ChromeDriver(chromeDriverService, new ChromeOptions());
@@ -30,42 +41,59 @@ namespace QA_Scanner.Models
 
         public void SessionLogin()
         {
-            try
-            {
-                _webDriver.Navigate().GoToUrl(_site);
-                var userNameField = _webDriver.FindElement(By.Id("username"));
-                var userPasswordField = _webDriver.FindElement(By.Id("password"));
-                var loginButton = _webDriver.FindElement(By.Id("loginbtn"));
+            _webDriver.Navigate().GoToUrl(_site);
+            var userNameField = _webDriver.FindElement(By.Id("username"));
+            var userPasswordField = _webDriver.FindElement(By.Id("password"));
+            var loginButton = _webDriver.FindElement(By.Id("loginbtn"));
 
-                userNameField.SendKeys(_username);
-                userPasswordField.SendKeys(_password);
-                loginButton.Click();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            userNameField.SendKeys(Username);
+            userPasswordField.SendKeys(Password);
+            loginButton.Click();
         }
 
         public void GoToSubjectTestPage(string teacherPassword, string subjectUrl)
         {
             _teacherPassword = teacherPassword;
             _webDriver.Navigate().GoToUrl(subjectUrl);
+
+            if (CheckExistsElement("//button[@type='submit'][text()='Начать тестирование']"))
+                _webDriver.FindElement(By.XPath("//button[@type='submit'][text()='Начать тестирование']")).Click();
+            else if (CheckExistsElement("//button[@type='submit'][text()='Пройти тест заново']"))
+                _webDriver.FindElement(By.XPath("//button[@type='submit'][text()='Пройти тест заново']")).Click();
+
+
+            var quizPassword = _webDriver.FindElement(By.Id("id_quizpassword"));
+            quizPassword.SendKeys(teacherPassword);
+
+            _webDriver.FindElement(By.Id("id_submitbutton")).Submit();
         }
 
-        public void AnswerToAllQuestions(Subject subject)
+        public void AnswerToAllQuestions(Subject subject, ResponseAlgorithm responseAlgorithm)
         {           
             var questionsList = _webDriver.FindElements(By.ClassName("qtext"));
+            LogList.Add($"Catched {questionsList.Count} questions");
+
+            int i = 1;
             foreach (var question in questionsList)
             {
-                var answer = subject.ResponseComputerNetwork(question.Text);
+                string answer = responseAlgorithm(question.Text);
+
                 if(CheckExistsElement($"//*[contains(text(), '{answer}')]"))
                 {
                     var answerLabel = _webDriver.FindElement(By.XPath($"//*[contains(text(), '{answer}')]"));
                     string answerInputId = answerLabel.GetAttribute("for");
                     _webDriver.FindElement(By.Id(answerInputId)).Click();
-                }               
+                    LogList.Add($"{i} question answered");
+                }
+                else
+                {
+                    LogList.Add($"{i} question not answered");
+                }
+
+                i++;
             }
+
+            LogList.Add("Finished!");
         }
 
         private bool CheckExistsElement(string xpath)
