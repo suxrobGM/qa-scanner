@@ -147,5 +147,45 @@ namespace QA_Scanner.Models
 
             return questionNotFound;
         }       
+
+        public string ResponsePhilosophy(string question)
+        {
+            question = question.ParseQA();
+            question = question.RemoveStartingDigits();
+
+            int i = 0;
+            foreach (var p in _docx.Paragraphs)
+            {
+                string questionLine = p.Text.ParseQA();
+                questionLine = questionLine.RemoveStartingDigits();
+                
+                if (questionLine.Contains(question) && (i + 5) < _docx.Paragraphs.Count)
+                {
+                    for (int j = 1; j < 5; j++)
+                    {                       
+                        var answers = _docx.Paragraphs[i + j].MagicText
+                            .Where(x => 
+                            {
+                                if (x.formatting != null && x.formatting.Bold.HasValue)
+                                    return x.formatting.Bold.Value;
+                                else
+                                    return false;
+                            })
+                            .Select(x => x.text);
+
+                        if (answers.Any())
+                        {
+                            return answers.First().Substring(2).Trim();
+                        }
+                    }
+
+                    return answerNotFound;
+                }
+
+                i++;
+            }
+
+            return questionNotFound;
+        }
     }
 }

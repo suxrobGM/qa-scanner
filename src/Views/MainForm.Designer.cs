@@ -46,6 +46,8 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.authorLink = new System.Windows.Forms.LinkLabel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.automationLog = new System.Windows.Forms.ListBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.subjectUrlTB = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.startBtn = new System.Windows.Forms.Button();
@@ -57,8 +59,6 @@
             this.siteLink = new System.Windows.Forms.LinkLabel();
             this.usernameTB = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.automationLog = new System.Windows.Forms.ListBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.opacityTrack)).BeginInit();
             this.panel1.SuspendLayout();
@@ -143,7 +143,8 @@
             "English_2018.docx",
             "DataStructure_2018.docx",
             "Digital_2019.docx",
-            "ComputerNetwork_2019.docx"});
+            "ComputerNetwork_2019.docx",
+            "Philosophy_2019.docx"});
             this.selectedSubject.Location = new System.Drawing.Point(11, 24);
             this.selectedSubject.Margin = new System.Windows.Forms.Padding(4);
             this.selectedSubject.Name = "selectedSubject";
@@ -300,6 +301,26 @@
             this.tabPage2.Text = "Automation";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // automationLog
+            // 
+            this.automationLog.FormattingEnabled = true;
+            this.automationLog.ItemHeight = 16;
+            this.automationLog.Location = new System.Drawing.Point(295, 63);
+            this.automationLog.Name = "automationLog";
+            this.automationLog.Size = new System.Drawing.Size(236, 420);
+            this.automationLog.TabIndex = 12;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(314, 19);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(125, 17);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "EXPERIMENTAL";
+            // 
             // subjectUrlTB
             // 
             this.subjectUrlTB.Location = new System.Drawing.Point(11, 300);
@@ -410,26 +431,6 @@
             this.label5.Size = new System.Drawing.Size(135, 18);
             this.label5.TabIndex = 0;
             this.label5.Text = "Enter Username:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(314, 19);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(125, 17);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "EXPERIMENTAL";
-            // 
-            // automationLog
-            // 
-            this.automationLog.FormattingEnabled = true;
-            this.automationLog.ItemHeight = 16;
-            this.automationLog.Location = new System.Drawing.Point(295, 63);
-            this.automationLog.Name = "automationLog";
-            this.automationLog.Size = new System.Drawing.Size(236, 420);
-            this.automationLog.TabIndex = 12;
             // 
             // MainForm
             // 

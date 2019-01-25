@@ -146,7 +146,7 @@ namespace QA_Scanner.Views
             //_automation.Username = "di214-17-9";
             //_automation.Password = "Suxrobbek0729#";
             //_automation.Test_GotoUrl("file:///C:/Users/SuxrobGM/source/phishing/%D0%98%D1%82%D0%BE%D0%B3%D0%BE%D0%B2%D1%8B%D0%B9%20%D0%BA%D0%BE%D0%BD%D1%82%D1%80%D0%BE%D0%BB%D1%8C%20214%20%D0%B3%D1%80.html");
-            //_automation.AnswerToAllQuestions(_subject);            
+            //_automation.AnswerToAllQuestions(_subject, GetResponseAlgorithm());            
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -226,7 +226,11 @@ namespace QA_Scanner.Views
                         answerText.Text = _subject.ResponseComputerNetwork(questionText.Text);
                         break;
                     }
-                
+                case 5: // Philosophy_2019.docx
+                    {
+                        answerText.Text = _subject.ResponsePhilosophy(questionText.Text);
+                        break;
+                    }              
                 default:
                     break;
             }
@@ -256,7 +260,10 @@ namespace QA_Scanner.Views
                     {
                         return _subject.ResponseComputerNetwork;                        
                     }
-
+                case 5: // Philosophy_2019.docx
+                    {
+                        return _subject.ResponsePhilosophy;                        
+                    }
                 default:
                     return _subject.ResponseManualTableMethod;
 

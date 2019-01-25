@@ -77,10 +77,11 @@ namespace QA_Scanner.Models
             foreach (var question in questionsList)
             {
                 string answer = responseAlgorithm(question.Text);
+                string xpath = $"//label[contains(normalize-space(substring(text(), 2)), '{answer.Trim()}')]";                
 
-                if(CheckExistsElement($"//*[contains(text(), '{answer}')]"))
+                if (CheckExistsElement(xpath))
                 {
-                    var answerLabel = _webDriver.FindElement(By.XPath($"//*[contains(text(), '{answer}')]"));
+                    var answerLabel = _webDriver.FindElement(By.XPath(xpath));
                     string answerInputId = answerLabel.GetAttribute("for");
                     _webDriver.FindElement(By.Id(answerInputId)).Click();
                     LogList.Add($"{i} question answered");
