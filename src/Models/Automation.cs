@@ -60,6 +60,8 @@ namespace QA_Scanner.Models
                 _webDriver.FindElement(By.XPath("//button[@type='submit'][text()='Начать тестирование']")).Click();
             else if (CheckExistsElement("//button[@type='submit'][text()='Пройти тест заново']"))
                 _webDriver.FindElement(By.XPath("//button[@type='submit'][text()='Пройти тест заново']")).Click();
+            else if (CheckExistsElement("//button[@type='submit'][text()='Продолжить последнюю попытку']"))
+                _webDriver.FindElement(By.XPath("//button[@type='submit'][text()='Продолжить последнюю попытку']")).Click();
 
 
             var quizPassword = _webDriver.FindElement(By.Id("id_quizpassword"));
