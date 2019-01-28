@@ -206,7 +206,7 @@ namespace QA_Scanner.Views
                         answerText.Text = _subject.ResponseManualTableMethod(questionText.Text);
                         break;
                     }
-                case 1: // English_2018.docx
+                case 1: // English_2019.docx
                     {
                         answerText.Text = _subject.ResponseEnglish(questionText.Text);
                         break;

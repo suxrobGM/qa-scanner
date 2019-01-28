@@ -44,5 +44,10 @@ namespace QA_Scanner.Models
 
             return str;
         }
+
+        public static bool IsStartingWithDigits(this string str)
+        {
+            return Regex.IsMatch(str, @"^\d+");
+        }
     }
 }

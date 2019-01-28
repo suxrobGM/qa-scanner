@@ -40,29 +40,43 @@ namespace QA_Scanner.Models
         }        
 
         public string ResponseEnglish(string question)
-        {           
+        {
             question = question.ParseQA();
+            question = question.RemoveStartingDigits();
 
-            foreach (var row in _docx.Tables[0].Rows)
+            int i = 0;
+            foreach (var p in _docx.Paragraphs)
             {
-                string CellText = row.Cells[1].Paragraphs[0].Text;
+                string questionLine = p.Text.ParseQA();
+                questionLine = questionLine.RemoveStartingDigits();               
 
-                if (row.Cells[1].Paragraphs.Count > 1)
+                if (questionLine.Contains(question) && i < _docx.Paragraphs.Count)
                 {
-                    string Temp = String.Empty;
-                    for (int i = 0; i < row.Cells[1].Paragraphs.Count; i++)
+                    i++;
+                    while (!_docx.Paragraphs[i].Text.IsStartingWithDigits())
                     {
-                        Temp += row.Cells[1].Paragraphs[i].Text;
-                    }
-                    CellText = Temp;
+                        var answers = _docx.Paragraphs[i].MagicText
+                            .Where(x =>
+                            {
+                                if (x.formatting != null && x.formatting.Bold.HasValue)
+                                    return x.formatting.Bold.Value;
+                                else
+                                    return false;
+                            })
+                            .Select(x => x.text);
+
+                        if (answers.Any())
+                        {
+                            return answers.Aggregate((item1, item2) => item1 + item2);
+                        }
+
+                        i++;
+                    }                    
+
+                    return answerNotFound;
                 }
 
-                CellText = CellText.ParseQA();
-
-                if (CellText.Contains(question))
-                {
-                    return row.Cells[2].Paragraphs[0].Text; //founded answer!
-                }
+                i++;
             }
 
             return questionNotFound;
