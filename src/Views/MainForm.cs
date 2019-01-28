@@ -47,6 +47,8 @@ namespace QA_Scanner.Views
             opacityTrack.Value = (int)(Opacity * 100.0); 
             
             questionText.DataBindings.Add("Text", this, "QuestionText", false, DataSourceUpdateMode.OnPropertyChanged);
+            usernameTB.DataBindings.Add("Text", _settings, "Username", false, DataSourceUpdateMode.OnPropertyChanged);
+            passwordTB.DataBindings.Add("Text", _settings, "Password", false, DataSourceUpdateMode.OnPropertyChanged);
 
             _automation = new Automation();            
             automationLog.DataSource = _automation.LogList;

@@ -16,6 +16,8 @@ namespace QA_Scanner.Models
         private string _selectedSubject;
         private bool _isAsynchronousFinding;
         private double _opacity;
+        private string _username;
+        private string _password;
         private XDocument _xDoc;
 
         #region Constructors
@@ -88,6 +90,38 @@ namespace QA_Scanner.Models
                 RaisePropertyChanged("Opacity");
             }
         }
+
+        public string Username
+        {
+            get
+            {
+                _selectedSubject = _xDoc.Root.Element("Username").Value;
+                return _selectedSubject;
+            }
+            set
+            {
+                _selectedSubject = value;
+                _xDoc.Root.Element("Username").Value = value;
+                _xDoc.Save(_xmlFile);
+                RaisePropertyChanged("Username");
+            }
+        }
+
+        public string Password
+        {
+            get
+            {
+                _selectedSubject = _xDoc.Root.Element("Password").Value;
+                return _selectedSubject;
+            }
+            set
+            {
+                _selectedSubject = value;
+                _xDoc.Root.Element("Password").Value = value;
+                _xDoc.Save(_xmlFile);
+                RaisePropertyChanged("Password");
+            }
+        }
         #endregion
 
         private void SetDefaultSettings()
@@ -101,7 +135,9 @@ namespace QA_Scanner.Models
                 new XElement("General_Settings",
                     new XElement("SelectedSubject", _selectedSubject),
                     new XElement("IsAsynchronousFinding", _isAsynchronousFinding),
-                    new XElement("Opacity", _opacity)
+                    new XElement("Opacity", _opacity),
+                    new XElement("Username", _username),
+                    new XElement("Password", _password)
                     )
                 );
 
