@@ -95,12 +95,12 @@ namespace QA_Scanner.Models
         {
             get
             {
-                _selectedSubject = _xDoc.Root.Element("Username").Value;
-                return _selectedSubject;
+                _username = _xDoc.Root.Element("Username").Value;
+                return _username;
             }
             set
             {
-                _selectedSubject = value;
+                _username = value;
                 _xDoc.Root.Element("Username").Value = value;
                 _xDoc.Save(_xmlFile);
                 RaisePropertyChanged("Username");
@@ -111,12 +111,12 @@ namespace QA_Scanner.Models
         {
             get
             {
-                _selectedSubject = _xDoc.Root.Element("Password").Value;
-                return _selectedSubject;
+                _password = _xDoc.Root.Element("Password").Value;
+                return _password;
             }
             set
             {
-                _selectedSubject = value;
+                _password = value;
                 _xDoc.Root.Element("Password").Value = value;
                 _xDoc.Save(_xmlFile);
                 RaisePropertyChanged("Password");
@@ -129,6 +129,8 @@ namespace QA_Scanner.Models
             _selectedSubject = "ManualTableMethod.docx";
             _isAsynchronousFinding = true;
             _opacity = 1.0;
+            _username = "";
+            _password = "";
 
             _xDoc = new XDocument(
                 new XDeclaration("1.0.0.0", "utf-8", "yes"),
