@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -93,6 +94,7 @@ namespace QA_Scanner.Models
                     LogList.Add($"{i} question not answered");
                 }
 
+                Thread.Sleep(1000);
                 i++;
             }
 
@@ -111,11 +113,6 @@ namespace QA_Scanner.Models
             }
 
             return true;
-        }
-
-        public void Test_GotoUrl(string url)
-        {
-            _webDriver.Navigate().GoToUrl(url);
-        }
+        }        
     }
 }

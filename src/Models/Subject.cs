@@ -65,10 +65,8 @@ namespace QA_Scanner.Models
                             })
                             .Select(x => x.text);
 
-                        if (answers.Any())
-                        {
-                            return answers.Aggregate((item1, item2) => item1 + item2);
-                        }
+                        if (answers.Any())                       
+                            return answers.Aggregate((item1, item2) => item1 + item2);                      
 
                         i++;
                     }                    

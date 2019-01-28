@@ -129,24 +129,28 @@ namespace QA_Scanner.Views
             Process.Start("http://moodle.samtuit.uz");
         }
 
-        private void startBtn_Click(object sender, EventArgs e)
+        private async void startBtn_Click(object sender, EventArgs e)
         {
-            if (usernameTB.Text != String.Empty && passwordTB.Text != String.Empty)
-            {                
+            await Task.Run(() =>
+            {
+                if (string.IsNullOrEmpty(usernameTB.Text) ||
+                    string.IsNullOrEmpty(passwordTB.Text) ||
+                    string.IsNullOrEmpty(teacherPasswordTB.Text) ||
+                    string.IsNullOrEmpty(subjectUrlTB.Text)
+                    )
+                {
+                    var customMessageBox = new CustomMessageBox("Please enter all fields", this.Opacity);
+                    customMessageBox.ShowDialog();
+                    return;
+                }
+
                 _automation.OpenChrome();
                 _automation.Username = usernameTB.Text;
                 _automation.Password = passwordTB.Text;
                 _automation.SessionLogin();
                 _automation.GoToSubjectTestPage(teacherPasswordTB.Text, subjectUrlTB.Text);
-                _automation.AnswerToAllQuestions(_subject, GetResponseAlgorithm());
-            }
-
-            // Experimental
-            //_automation.OpenChrome();
-            //_automation.Username = "di214-17-9";
-            //_automation.Password = "Suxrobbek0729#";
-            //_automation.Test_GotoUrl("file:///C:/Users/SuxrobGM/source/phishing/%D0%98%D1%82%D0%BE%D0%B3%D0%BE%D0%B2%D1%8B%D0%B9%20%D0%BA%D0%BE%D0%BD%D1%82%D1%80%D0%BE%D0%BB%D1%8C%20214%20%D0%B3%D1%80.html");
-            //_automation.AnswerToAllQuestions(_subject, GetResponseAlgorithm());            
+                _automation.AnswerToAllQuestions(_subject, GetResponseAlgorithm());                
+            });                       
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
