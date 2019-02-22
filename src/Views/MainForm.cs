@@ -236,7 +236,12 @@ namespace QA_Scanner.Views
                     {
                         answerText.Text = _subject.ResponsePhilosophy(questionText.Text);
                         break;
-                    }              
+                    }
+                case 6: // C++Programming.docx
+                    {
+                        answerText.Text = _subject.ResponseCppProgramming(questionText.Text);
+                        break;
+                    }
                 default:
                     break;
             }
@@ -269,6 +274,10 @@ namespace QA_Scanner.Views
                 case 5: // Philosophy_2019.docx
                     {
                         return _subject.ResponsePhilosophy;                        
+                    }
+                case 6: // C++Programming.docx
+                    {
+                        return _subject.ResponseCppProgramming;
                     }
                 default:
                     return _subject.ResponseManualTableMethod;

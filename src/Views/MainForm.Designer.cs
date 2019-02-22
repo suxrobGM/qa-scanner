@@ -144,7 +144,8 @@
             "DataStructure_2018.docx",
             "Digital_2019.docx",
             "ComputerNetwork_2019.docx",
-            "Philosophy_2019.docx"});
+            "Philosophy_2019.docx",
+            "C++Programming.docx"});
             this.selectedSubject.Location = new System.Drawing.Point(11, 24);
             this.selectedSubject.Margin = new System.Windows.Forms.Padding(4);
             this.selectedSubject.Name = "selectedSubject";

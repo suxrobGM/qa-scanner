@@ -199,5 +199,48 @@ namespace QA_Scanner.Models
 
             return questionNotFound;
         }
+
+        public string ResponseCppProgramming(string question)
+        {
+            question = question.ParseQA();
+            question = question.RemoveStartingDigits();
+
+            int i = 0;
+            foreach (var p in _docx.Paragraphs)
+            {
+                string questionLine = p.Text.ParseQA();
+                questionLine = questionLine.RemoveStartingDigits();
+
+                if (questionLine.Contains(question) && i < _docx.Paragraphs.Count)
+                {
+                    i++;
+                    while (!_docx.Paragraphs[i].Text.IsStartingWithDigits() || !_docx.Paragraphs[i].Text.StartsWith("::"))
+                    {
+                        var answers = _docx.Paragraphs[i].MagicText
+                            .Where(x =>
+                            {
+                                if (x.text.StartsWith("{=") || x.text.StartsWith("="))
+                                    return true;
+                                else if (x.formatting != null && x.formatting.Bold.HasValue)
+                                    return x.formatting.Bold.Value;
+                                else
+                                    return false;
+                            })
+                            .Select(x => x.text);
+
+                        if (answers.Any())
+                            return answers.Aggregate((item1, item2) => item1 + item2);
+
+                        i++;
+                    }
+
+                    return answerNotFound;
+                }
+
+                i++;
+            }
+
+            return questionNotFound;
+        }
     }
 }
