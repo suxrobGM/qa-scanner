@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
-namespace QA_Scanner.Models
+namespace Server.Models
 {
     /// <summary>
     /// Specifies key modifiers.
@@ -39,7 +39,7 @@ namespace QA_Scanner.Models
         //MouseLeft           = 0x8000,
     }
 
-    class HotKey : IMessageFilter, IDisposable
+    public class HotKey : IMessageFilter, IDisposable
     {
         #region Extern
         const int WM_HOTKEY = 0x312;
@@ -64,32 +64,31 @@ namespace QA_Scanner.Models
 
         public HotKey(Keys keyCode, KeyModifiers modifiers)
         {
-            this.KeyCode = keyCode;
-            this.Modifiers = modifiers;
+            KeyCode = keyCode;
+            Modifiers = modifiers;
             Application.AddMessageFilter(this);
         }
 
         ~HotKey()
         {
-            this.Dispose();
+            Dispose();
         }
 
         public void Dispose()
         {
-            if (this.IsRegistered)
-                this.Unregister();
+            if (IsRegistered)
+                Unregister();
 
-            this.windowHandle = IntPtr.Zero;
-            this.Modifiers = KeyModifiers.None;
-            this.KeyCode = Keys.None;
-            this.Tag = 0;
+            windowHandle = IntPtr.Zero;
+            Modifiers = KeyModifiers.None;
+            KeyCode = Keys.None;
+            Tag = 0;
         }
 
         private bool OnPressed()
         {
-            HandledEventArgs e = new HandledEventArgs(false);
-            if (this.Pressed != null)
-                this.Pressed(this, e);
+            var e = new HandledEventArgs(false);
+            Pressed?.Invoke(this, e);
 
             return e.Handled;
         }
@@ -106,11 +105,11 @@ namespace QA_Scanner.Models
         /// </returns>
         public bool PreFilterMessage(ref Message message)
         {
-            if (message.Msg != WM_HOTKEY || !this.IsRegistered)
+            if (message.Msg != WM_HOTKEY || !IsRegistered)
                 return false;
 
-            if (message.WParam == this.Guid)
-                return this.OnPressed();
+            if (message.WParam == Guid)
+                return OnPressed();
 
             return false;
         }
@@ -123,10 +122,10 @@ namespace QA_Scanner.Models
         /// </param>
         public void Register(Control window)
         {
-            if (this.IsRegistered)
+            if (IsRegistered)
                 throw new NotSupportedException("You cannot register a hotkey that is already registered");
 
-            if (this.IsEmpty)
+            if (IsEmpty)
                 throw new NotSupportedException("You cannot register an empty hotkey");
 
             if (window.IsDisposed)
@@ -134,12 +133,12 @@ namespace QA_Scanner.Models
 
             this.windowHandle = window.Handle;
 
-            if (!RegisterHotKey(this.windowHandle, this.Guid, this.Modifiers, this.KeyCode))
+            if (!RegisterHotKey(windowHandle, Guid, Modifiers, KeyCode))
             {
                 if (Marshal.GetLastWin32Error() != ERROR_HOTKEY_ALREADY_REGISTERED)
                     throw new Win32Exception();
             }
-            this.IsRegistered = true;
+            IsRegistered = true;
         }
 
         /// <summary>
@@ -147,18 +146,18 @@ namespace QA_Scanner.Models
         /// </summary>
         public void Unregister()
         {
-            if (!this.IsRegistered)
+            if (!IsRegistered)
                 return;
 
-            //if (!UnregisterHotKey(this.windowHandle, this.Guid))
-            //    throw new Win32Exception();
+            if (!UnregisterHotKey(windowHandle, Guid))
+                throw new Win32Exception();
 
-            this.IsRegistered = false;
+            IsRegistered = false;
         }
 
         public bool HasModifier(KeyModifiers modifiers)
         {
-            return (this.Modifiers & modifiers) != 0;
+            return (Modifiers & modifiers) != 0;
         }
 
         public static HotKey Parse(object content)
@@ -169,7 +168,7 @@ namespace QA_Scanner.Models
             return Parse(content.ToString());
         }
 
-        #region Fields
+        #region Properties
 
         private IntPtr Guid
         {
@@ -190,6 +189,5 @@ namespace QA_Scanner.Models
         public int Tag { get; set; }
 
         #endregion
-
     }
 }
