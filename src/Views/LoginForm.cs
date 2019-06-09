@@ -21,6 +21,19 @@ namespace QA_Scanner.Views
 
         private void SignInBtn_Click(object sender, EventArgs e)
         {
+            ValidateData();
+        }
+
+        private void PassBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Return)
+            {
+                ValidateData();
+            }            
+        }
+
+        private void ValidateData()
+        {
             if (!string.IsNullOrEmpty(passBox.Text) && passBox.Text == "0729")
             {
                 IsSuccessfeullyLogged = true;

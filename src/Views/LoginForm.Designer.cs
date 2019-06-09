@@ -88,6 +88,7 @@
             this.passBox.Size = new System.Drawing.Size(251, 22);
             this.passBox.TabIndex = 4;
             this.passBox.UseSystemPasswordChar = true;
+            this.passBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.PassBox_KeyUp);
             // 
             // LoginForm
             // 
