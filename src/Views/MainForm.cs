@@ -18,17 +18,27 @@ namespace QA_Scanner.Views
 {
     public partial class MainForm : Form, INotifyPropertyChanged
     {
-        private HotKey hKey = new HotKey(Keys.D, KeyModifiers.Control);   //Ctrl+D
-        private HotKey trackBarKey_Plus = new HotKey(Keys.Multiply, KeyModifiers.None);
-        private HotKey trackBarKey_Minus = new HotKey(Keys.Divide, KeyModifiers.None);
+        private HotKey hKey;
+        private HotKey trackBarKey_Plus; 
+        private HotKey trackBarKey_Minus;
         private SettingsXml _settings;
         private Subject _subject;
         private Automation _automation;
+        private LoginForm loginForm;
 
         public MainForm()
         {
             InitializeComponent();
 
+            loginForm = new LoginForm();
+            loginForm.ShowDialog();
+
+            if (!loginForm.IsSuccessfeullyLogged)
+                this.Close();
+
+            hKey = new HotKey(Keys.D, KeyModifiers.Control);   //Ctrl+D
+            trackBarKey_Plus = new HotKey(Keys.Multiply, KeyModifiers.None);
+            trackBarKey_Minus = new HotKey(Keys.Divide, KeyModifiers.None);
             hKey.Pressed += (o, e) => { SetVisible(); e.Handled = true; };          
             hKey.Register(this);
             trackBarKey_Plus.Pressed += (o, e) => { AddOpacity(); e.Handled = true; };

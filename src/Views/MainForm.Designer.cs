@@ -219,7 +219,7 @@
             this.panel1.Location = new System.Drawing.Point(4, 4);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(540, 194);
+            this.panel1.Size = new System.Drawing.Size(541, 194);
             this.panel1.TabIndex = 5;
             // 
             // tabControl1
@@ -231,7 +231,7 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(556, 533);
+            this.tabControl1.Size = new System.Drawing.Size(557, 533);
             this.tabControl1.TabIndex = 7;
             // 
             // tabPage1
@@ -243,7 +243,7 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Size = new System.Drawing.Size(548, 504);
+            this.tabPage1.Size = new System.Drawing.Size(549, 504);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Manual";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -261,7 +261,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(4, 393);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(540, 107);
+            this.panel3.Size = new System.Drawing.Size(541, 107);
             this.panel3.TabIndex = 12;
             // 
             // authorLink
@@ -437,7 +437,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(556, 533);
+            this.ClientSize = new System.Drawing.Size(557, 533);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4);
