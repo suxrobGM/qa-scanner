@@ -59,6 +59,14 @@
             this.siteLink = new System.Windows.Forms.LinkLabel();
             this.usernameTB = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.textToTranslateTB = new System.Windows.Forms.TextBox();
+            this.translatedTextTB = new System.Windows.Forms.TextBox();
+            this.translateBtn = new System.Windows.Forms.Button();
+            this.selectLanguageFrom = new System.Windows.Forms.ComboBox();
+            this.selectLanguageTo = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.opacityTrack)).BeginInit();
             this.panel1.SuspendLayout();
@@ -66,6 +74,7 @@
             this.tabPage1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // answerLabel
@@ -226,6 +235,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
@@ -297,7 +307,7 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage2.Size = new System.Drawing.Size(548, 504);
+            this.tabPage2.Size = new System.Drawing.Size(549, 504);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Automation";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -433,6 +443,91 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Enter Username:";
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.label3);
+            this.tabPage3.Controls.Add(this.label2);
+            this.tabPage3.Controls.Add(this.selectLanguageTo);
+            this.tabPage3.Controls.Add(this.selectLanguageFrom);
+            this.tabPage3.Controls.Add(this.translateBtn);
+            this.tabPage3.Controls.Add(this.translatedTextTB);
+            this.tabPage3.Controls.Add(this.textToTranslateTB);
+            this.tabPage3.Location = new System.Drawing.Point(4, 25);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(549, 504);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Google Translate";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // textToTranslateTB
+            // 
+            this.textToTranslateTB.Location = new System.Drawing.Point(8, 49);
+            this.textToTranslateTB.Multiline = true;
+            this.textToTranslateTB.Name = "textToTranslateTB";
+            this.textToTranslateTB.Size = new System.Drawing.Size(533, 163);
+            this.textToTranslateTB.TabIndex = 0;
+            // 
+            // translatedTextTB
+            // 
+            this.translatedTextTB.Location = new System.Drawing.Point(8, 266);
+            this.translatedTextTB.Multiline = true;
+            this.translatedTextTB.Name = "translatedTextTB";
+            this.translatedTextTB.ReadOnly = true;
+            this.translatedTextTB.Size = new System.Drawing.Size(533, 169);
+            this.translatedTextTB.TabIndex = 1;
+            // 
+            // translateBtn
+            // 
+            this.translateBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.translateBtn.Location = new System.Drawing.Point(8, 469);
+            this.translateBtn.Name = "translateBtn";
+            this.translateBtn.Size = new System.Drawing.Size(96, 27);
+            this.translateBtn.TabIndex = 2;
+            this.translateBtn.Text = "Translate";
+            this.translateBtn.UseVisualStyleBackColor = true;
+            // 
+            // selectLanguageFrom
+            // 
+            this.selectLanguageFrom.FormattingEnabled = true;
+            this.selectLanguageFrom.Items.AddRange(new object[] {
+            "English",
+            "Russian"});
+            this.selectLanguageFrom.Location = new System.Drawing.Point(147, 19);
+            this.selectLanguageFrom.Name = "selectLanguageFrom";
+            this.selectLanguageFrom.Size = new System.Drawing.Size(156, 24);
+            this.selectLanguageFrom.TabIndex = 3;
+            // 
+            // selectLanguageTo
+            // 
+            this.selectLanguageTo.FormattingEnabled = true;
+            this.selectLanguageTo.Items.AddRange(new object[] {
+            "English",
+            "Russian"});
+            this.selectLanguageTo.Location = new System.Drawing.Point(147, 236);
+            this.selectLanguageTo.Name = "selectLanguageTo";
+            this.selectLanguageTo.Size = new System.Drawing.Size(156, 24);
+            this.selectLanguageTo.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(8, 22);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(119, 17);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Translate from:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(8, 239);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(101, 17);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Translate to:";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -458,6 +553,8 @@
             this.panel3.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -494,6 +591,14 @@
         private System.Windows.Forms.LinkLabel authorLink;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox automationLog;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.ComboBox selectLanguageFrom;
+        private System.Windows.Forms.Button translateBtn;
+        private System.Windows.Forms.TextBox translatedTextTB;
+        private System.Windows.Forms.TextBox textToTranslateTB;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox selectLanguageTo;
     }
 }
 

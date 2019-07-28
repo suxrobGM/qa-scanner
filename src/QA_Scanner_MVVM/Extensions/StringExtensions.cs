@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
-namespace QA_Scanner.Models
+namespace QA_Scanner.Extensions
 {
-    public static class StringHelper
+    public static class StringExtensions
     {
         private static readonly string[] extraChars = {
             Convert.ToChar(160).ToString(),

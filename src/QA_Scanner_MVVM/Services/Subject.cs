@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
+using QA_Scanner.Extensions;
 using Xceed.Words.NET;
 
-namespace QA_Scanner.Models
-{   
+namespace QA_Scanner.Services
+{
     public class Subject
     {               
         private readonly string _docFile;
