@@ -37,7 +37,56 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Awesomium.Core, Version=1.7.5.0, Culture=neutral, PublicKeyToken=e1a0d7c8071a5214, processorArchitecture=x86">
+      <HintPath>..\..\packages\Awesomium.NetWrapper.Unofficial.fix.1.7.5.01\lib\net45\Packed\Awesomium.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Awesomium.Windows.Controls, Version=1.7.5.0, Culture=neutral, PublicKeyToken=7a34e179b8b61c39, processorArchitecture=x86">
+      <HintPath>..\..\packages\Awesomium.NetWrapper.Unofficial.fix.1.7.5.01\lib\net45\Packed\Awesomium.Windows.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Awesomium.Windows.Forms, Version=1.7.5.0, Culture=neutral, PublicKeyToken=9bd24830fbe304a0, processorArchitecture=x86">
+      <HintPath>..\..\packages\Awesomium.NetWrapper.Unofficial.fix.1.7.5.01\lib\net45\Packed\Awesomium.Windows.Forms.dll</HintPath>
+    </Reference>
     <Reference Include="CommonServiceLocator, Version=2.0.4.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
       <HintPath>..\..\packages\CommonServiceLocator.2.0.4\lib\net45\CommonServiceLocator.dll</HintPath>
     </Reference>
@@ -100,13 +149,15 @@
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Services\Automation.cs" />
     <Compile Include="PlatformSpecific\HotKey.cs" />
-    <Compile Include="Services\ITranslationService.cs" />
     <Compile Include="Services\SettingsXml.cs" />
     <Compile Include="Services\Subject.cs" />
-    <Compile Include="Services\TranslationService.cs" />
     <Compile Include="ViewModels\ManuallyModeViewModel.cs" />
+    <Compile Include="ViewModels\TranslatorViewModel.cs" />
     <Compile Include="Views\ManuallyModeView.xaml.cs">
       <DependentUpon>ManuallyModeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TranslatorView.xaml.cs">
+      <DependentUpon>TranslatorView.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -122,6 +173,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\ManuallyModeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TranslatorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -152,6 +207,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\left-arrow.png" />
+    <Resource Include="Resources\right-arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\round-arrow.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\..\packages\Selenium.Chrome.WebDriver.75.0.0\build\Selenium.Chrome.WebDriver.targets" Condition="Exists('..\..\packages\Selenium.Chrome.WebDriver.75.0.0\build\Selenium.Chrome.WebDriver.targets')" />

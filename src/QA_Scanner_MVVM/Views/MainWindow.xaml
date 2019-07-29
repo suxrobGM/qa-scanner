@@ -20,18 +20,20 @@
         BorderThickness="0.5">
     <StackPanel>
         <Grid>
-            <Button Content="X" Panel.ZIndex="1" FontWeight="Bold" HorizontalAlignment="Right" VerticalAlignment="Top" Width="17" Height="18" Margin="0,4,5.2,0" Foreground="#FFD60000"/>
+            <Button Content="X" Command="{Binding CloseAppCommand}" Panel.ZIndex="1" FontWeight="Bold" HorizontalAlignment="Right" VerticalAlignment="Top" Width="17" Height="18" Margin="0,4,5.2,0" Foreground="#FFD60000"/>
             <TabControl HorizontalAlignment="Left" Height="430" VerticalAlignment="Top" Width="400" BorderThickness="0,0,1,1">
                 <TabItem Header="Manual">
                     <Grid>
-                        <local:ManuallyModeView HorizontalAlignment="Left" Height="403" VerticalAlignment="Top" Width="395"/>
+                        <local:ManuallyModeView />
                     </Grid>
                 </TabItem>
                 <TabItem Header="Automatization">
                     <Grid/>
                 </TabItem>
                 <TabItem Header="Google Translate">
-                    <Grid/>
+                    <Grid>
+                        <local:TranslatorView />
+                    </Grid>
                 </TabItem>
                 <TabItem Header="Listening">
                     <Grid/>

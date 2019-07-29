@@ -14,6 +14,6 @@ namespace QA_Scanner.Services
 
     public interface ITranslationService
     {
-        Task<string> TransalteTextAsync(string text, Language sourceLanguage = Language.en, Language translatingLanguage = Language.ru);
+        Task<string> TranslateTextAsync(string text, Language sourceLanguage = Language.en, Language translatingLanguage = Language.ru);
     }
 }

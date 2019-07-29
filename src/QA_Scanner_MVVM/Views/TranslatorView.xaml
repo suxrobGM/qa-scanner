@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="QA_Scanner_MVVM.Views.TranslatorView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:local="clr-namespace:QA_Scanner_MVVM.Views"
+             xmlns:awesomium="http://schemas.awesomium.com/winfx"
+             xmlns:prism="http://prismlibrary.com/"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" 
+             d:DesignWidth="395"
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <StackPanel>
+        <WrapPanel>
+            <Button Width="25" Command="{Binding BackNavigateCommand}" CommandParameter="{Binding ElementName=browser}">
+                <Image Source="/QA_Scanner_MVVM;component/Resources/left-arrow.png" />
+            </Button>
+            <Button Width="25" Command="{Binding ForwardNavigateCommand}" CommandParameter="{Binding ElementName=browser}">
+                <Image Source="/QA_Scanner_MVVM;component/Resources/right-arrow.png" />
+            </Button>
+            <Button Width="25" Command="{Binding UpdatePageCommand}" CommandParameter="{Binding ElementName=browser}">
+                <Image Source="/QA_Scanner_MVVM;component/Resources/round-arrow.png" />
+            </Button>
+            <TextBox x:Name="navigationTB" Height="25" TextWrapping="Wrap" Text="{Binding NavigationSource}" Width="320" HorizontalAlignment="Right" Background="#FFEEEEEE" />
+        </WrapPanel>
+        <awesomium:WebControl x:Name="browser" Source="{Binding NavigationSource}" Height="375">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="LoadingFrameComplete">
+                    <prism:InvokeCommandAction Command="{Binding PageLoadedCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </awesomium:WebControl>
+    </StackPanel>
+</UserControl>

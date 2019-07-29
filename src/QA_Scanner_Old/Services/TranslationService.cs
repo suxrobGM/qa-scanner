@@ -19,7 +19,7 @@ namespace QA_Scanner.Services
             _doc = new HtmlDocument();
         }
 
-        public async Task<string> TransalteTextAsync(string text, Language sourceLanguage = Language.en, Language translatingLanguage = Language.ru)
+        public async Task<string> TranslateTextAsync(string text, Language sourceLanguage = Language.en, Language translatingLanguage = Language.ru)
         {
             var response = await _client.GetAsync($"#view=home&op=translate&sl={sourceLanguage}&tl={translatingLanguage}&text={text}");
 
