@@ -7,7 +7,7 @@
     <ProjectGuid>{D56A0277-672F-4840-BC67-D83AC3CAA6D9}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>QA_Scanner</RootNamespace>
-    <AssemblyName>QA_Scanner</AssemblyName>
+    <AssemblyName>QA_Scanner_Old</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -102,10 +102,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Services\Automation.cs" />
-    <Compile Include="Services\ITranslationService.cs" />
     <Compile Include="Services\SettingsXml.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
-    <Compile Include="Services\TranslationService.cs" />
     <Compile Include="Views\CustomMessageBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,7 +192,7 @@
   <Import Project="..\..\packages\Selenium.WebDriver.ChromeDriver.2.45.0\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('..\..\packages\Selenium.WebDriver.ChromeDriver.2.45.0\build\Selenium.WebDriver.ChromeDriver.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
-      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\..\packages\Selenium.WebDriver.ChromeDriver.2.45.0\build\Selenium.WebDriver.ChromeDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Selenium.WebDriver.ChromeDriver.2.45.0\build\Selenium.WebDriver.ChromeDriver.targets'))" />
   </Target>
