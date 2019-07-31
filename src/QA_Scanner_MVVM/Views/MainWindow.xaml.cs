@@ -23,6 +23,8 @@ namespace QA_Scanner_MVVM.Views
             _hKey = new HotKey(Key.D, KeyModifier.Ctrl, SetVisible);
             _sliderPlus = new HotKey(Key.Multiply, KeyModifier.None, AddOpacity);
             _sliderMinus = new HotKey(Key.Subtract, KeyModifier.None, SubtractOpacity);
+            opacitySlider.Value = _settings.Opacity * 100;
+            Opacity = _settings.Opacity;
         }       
 
         private void SetVisible(HotKey hotKey)
@@ -54,9 +56,12 @@ namespace QA_Scanner_MVVM.Views
         }
 
         private void OpacitySlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-            Opacity = opacitySlider.Value / 100.0;
-            _settings.Opacity = Opacity;
+        {          
+            if (IsInitialized)
+            {
+                Opacity = opacitySlider.Value / 100.0;
+                _settings.Opacity = Opacity;
+            }
         }
 
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
