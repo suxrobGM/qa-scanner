@@ -18,6 +18,7 @@ namespace SpeechRecognition
 		string _subscriptionKey;
 		string _region;
 		string _outputResult;
+		string _outputFileName;		
 		shared_ptr<SpeechConfig> _config;
 
 	public:
@@ -25,6 +26,7 @@ namespace SpeechRecognition
 		{
 			this->_subscriptionKey = object->_subscriptionKey;
 			this->_region = object->_region;
+			this->_outputFileName = object->_outputFileName;
 			this->_config = SpeechConfig::FromSubscription(_subscriptionKey, _region);
 			this->_outputResult = "";
 		}
@@ -35,6 +37,16 @@ namespace SpeechRecognition
 			this->_region = region;
 			this->_config = SpeechConfig::FromSubscription(subscriptionKey, region);
 			this->_outputResult = "";
+			this->_outputFileName = "transcript.txt";
+		}
+
+		AzureSpeech(string subscriptionKey, string region, string outputFileName)
+		{
+			this->_subscriptionKey = subscriptionKey;
+			this->_region = region;
+			this->_config = SpeechConfig::FromSubscription(subscriptionKey, region);
+			this->_outputResult = "";
+			this->_outputFileName = outputFileName;
 		}
 
 		void RecognizeFromMicrophone()
@@ -69,9 +81,9 @@ namespace SpeechRecognition
 			_outputResult += out.str();
 		}
 
-		void RecognizeFromWawFile(string fileName, bool saveToOutputFile = false, string outputFileName = "transcript.txt")
+		void RecognizeFromWavFile(string filePath)
 		{
-			auto recognizer = SpeechRecognizer::FromConfig(_config, AudioConfig::FromWavFileInput(fileName));
+			auto recognizer = SpeechRecognizer::FromConfig(_config, AudioConfig::FromWavFileInput(filePath));
 
 			// promise for synchronization of recognition end.
 			promise<void> recognitionEnd;			
@@ -82,9 +94,9 @@ namespace SpeechRecognition
 
 				if (e.Result->Reason == ResultReason::RecognizedSpeech)
 				{
-					out << "RECOGNIZED: Text=" << e.Result->Text << "\n"
-						<< "  Offset=" << e.Result->Offset() << "\n"
-						<< "  Duration=" << e.Result->Duration() << std::endl;					
+					out << "RECOGNIZED: Text=" << e.Result->Text << "\n";
+						//<< "  Offset=" << e.Result->Offset() << "\n"
+						//<< "  Duration=" << e.Result->Duration() << std::endl;					
 				}
 				else if (e.Result->Reason == ResultReason::NoMatch)
 				{
@@ -128,18 +140,29 @@ namespace SpeechRecognition
 			// Stops recognition.
 			recognizer->StopContinuousRecognitionAsync().get();
 
-			if (saveToOutputFile)
-			{
-				ofstream outFile;
-				outFile.open(outputFileName, ios::app);
-				outFile << _outputResult;
-				outFile.close();
-			}
+			ofstream outFile;
+			outFile.open(_outputFileName, ios::app);
+			outFile << _outputResult;
+			outFile.close();
 		}
 
 		string GetOutputResult()
 		{
 			return this->_outputResult;
+		}
+
+		string GetOutputFileName()
+		{
+			return this->_outputFileName;
+		}
+
+		~AzureSpeech()
+		{
+			/*ofstream outFile;
+			outFile.open("SpeechRecognitionCore.log");
+			outFile << "calling destructor" << endl;
+			outFile << _outputResult << endl;
+			outFile.close();*/
 		}
 	};
 }

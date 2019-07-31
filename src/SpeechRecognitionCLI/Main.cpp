@@ -1,5 +1,5 @@
 #include <iostream>
-#include "AzureSpeech.h"
+#include "azure_speech.h"
 using namespace std;
 using namespace SpeechRecognition;
 
@@ -32,8 +32,9 @@ int main(int argc, char** argv)
 
 	string wavFilePath = "C:\\Users\\suxrobgm\\source\\repos\\QA_Scanner\\src\\TestSpeechRecognition\\bin\\Debug\\netcoreapp2.2\\system_recorded_audio.wav";
 	auto speech = make_shared<AzureSpeech>(subscriptionKey, region);
-	//speech->RecognizeFromMicrophone();
-	speech->RecognizeFromWawFile(wavFilePath);
+	speech->RecognizeFromMicrophone();
+	//speech->RecognizeFromWawFile(wavFilePath);
+	//speech->SpeechContinuousRecognitionWithPullStream(wavFilePath);
 	cout << speech->GetOutputResult();
 
 	cout << "Please press a key to continue.\n";	

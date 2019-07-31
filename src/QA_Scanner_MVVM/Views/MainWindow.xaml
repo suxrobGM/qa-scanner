@@ -30,13 +30,15 @@
                 <TabItem Header="Automatization">
                     <Grid/>
                 </TabItem>
-                <TabItem Header="Google Translate">
+                <TabItem Header="Translator">
                     <Grid>
                         <local:TranslatorView />
                     </Grid>
                 </TabItem>
-                <TabItem Header="Listening">
-                    <Grid/>
+                <TabItem Header="Speech Recognition">
+                    <Grid>
+                        <local:SpeechRecognitionView />
+                    </Grid>
                 </TabItem>
             </TabControl>
         </Grid>

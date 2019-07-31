@@ -9,5 +9,6 @@ namespace QA_Scanner_MVVM.Services
     public interface ISpeechRecognitionService
     {
         void RecognizeSpeechFromMicrophone();
+        void RecognizeSpeechFromWavFile(string fileName);
     }
 }

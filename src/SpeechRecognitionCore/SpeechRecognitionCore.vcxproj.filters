@@ -21,7 +21,7 @@
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="AzureSpeech.h">
+    <ClInclude Include="azure_speech.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

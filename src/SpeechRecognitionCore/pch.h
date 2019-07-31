@@ -9,6 +9,6 @@
 
 // add headers that you want to pre-compile here
 #include "framework.h"
-#include "AzureSpeech.h"
+#include "azure_speech.h"
 
 #endif //PCH_H

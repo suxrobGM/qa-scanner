@@ -17,7 +17,7 @@ namespace TestSpeechRecognition
             var config = SpeechConfig.FromSubscription("e574db6949814dac8b86004e4c082a3b", "uksouth");
 
             // Creates a speech recognizer.
-            using (var recognizer = new SpeechRecognizer(config))
+            using (var recognizer = new SpeechRecognizer(config, AudioConfig.FromDefaultMicrophoneInput()))
             {
                 Console.WriteLine("Say something...");
 
@@ -134,7 +134,12 @@ namespace TestSpeechRecognition
             string outputFilePath = "system_recorded_audio.wav";
 
             _loopbackCapture = new WasapiLoopbackCapture();
-            var recordedAudioWriter = new WaveFileWriter(outputFilePath, _loopbackCapture.WaveFormat);
+            var wavFormat = new WaveFormat(16000, 16, 1);
+            var recordedAudioWriter = new WaveFileWriter(outputFilePath, wavFormat);
+
+            Console.WriteLine(_loopbackCapture.WaveFormat.SampleRate);
+            Console.WriteLine(_loopbackCapture.WaveFormat.Channels);
+            Console.WriteLine(_loopbackCapture.WaveFormat.BitsPerSample);
 
             _loopbackCapture.DataAvailable += (o, e) =>
             {
@@ -158,8 +163,8 @@ namespace TestSpeechRecognition
         static void Main()
         {
             //StartCapturingLoopback();
-            //RecognizeSpeechAsync().Wait();
-            ContinuousRecognitionWithFileAsync().Wait();
+            RecognizeSpeechAsync().Wait();
+            //ContinuousRecognitionWithFileAsync().Wait();
             Console.WriteLine("Please press a key to continue.");
             Console.ReadKey();
             //StopCapturingLoopback();

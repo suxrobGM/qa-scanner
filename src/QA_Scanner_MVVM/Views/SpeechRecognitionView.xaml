@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="QA_Scanner_MVVM.Views.SpeechRecognitionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:QA_Scanner_MVVM.Views"
+             xmlns:prism="http://prismlibrary.com/"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" 
+             d:DesignWidth="395"
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="10,7,0,0" TextWrapping="Wrap" Text="Listening transcript" VerticalAlignment="Top" Width="131" FontWeight="Bold"/>
+        <TextBox IsReadOnly="True" HorizontalAlignment="Left" Height="233" Margin="10,28,0,0" TextWrapping="Wrap" Text="{Binding ResultText}" VerticalAlignment="Top" Width="375"/>
+        <TextBlock HorizontalAlignment="Left" Margin="11,266,0,0" TextWrapping="Wrap" Text="Record status:" VerticalAlignment="Top" Width="89" FontSize="10" Height="16"/>
+        <TextBox IsReadOnly="True" HorizontalAlignment="Left" Margin="110,266,0,118" TextWrapping="Wrap" Text="{Binding RecordingStatus}" Width="275" Height="16" FontSize="10"/>
+        <Button Content="Start Rec" Command="{Binding StartCommand}" HorizontalAlignment="Left" Margin="11,289,0,0" VerticalAlignment="Top" Width="90" Height="25" FontWeight="Bold"/>
+        <Button Content="Stop Rec" Command="{Binding StopCommand}" HorizontalAlignment="Left" Margin="111,289,0,0" VerticalAlignment="Top" Width="90" Height="25" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="111,319,0,0" TextWrapping="Wrap" Text="Select (*.wav) file:" VerticalAlignment="Top" Height="18" Width="274"/>
+        <ComboBox ItemsSource="{Binding WavFiles}" SelectedItem="{Binding SelectedWavFile}" HorizontalAlignment="Left" Margin="110,337,0,0" VerticalAlignment="Top" Width="275" Height="25"/>
+        <Button Content="Recognize" Command="{Binding RecognizeCommand}" HorizontalAlignment="Left" Margin="11,337,0,0" VerticalAlignment="Top" Width="90" Height="25" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="209,293,0,0" TextWrapping="Wrap" Text="Recording time: " VerticalAlignment="Top" Width="86"/>
+        <TextBlock HorizontalAlignment="Left" Margin="295,293,0,0" TextWrapping="Wrap" Text="{Binding RecordingTimer, StringFormat={}{0:mm:ss}}" VerticalAlignment="Top" Width="90" Height="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="11,367,0,0" TextWrapping="Wrap" Text="Recognizing status:" VerticalAlignment="Top" Width="89" FontSize="10" Height="16"/>
+        <TextBox IsReadOnly="True" HorizontalAlignment="Left" Margin="111,367,0,17" TextWrapping="Wrap" Text="{Binding RecognizingStatus}" Width="274" Height="16" FontSize="10"/>
+    </Grid>
+</UserControl>

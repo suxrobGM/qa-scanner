@@ -168,13 +168,18 @@
     <Compile Include="Services\Automation.cs" />
     <Compile Include="PlatformSpecific\HotKey.cs" />
     <Compile Include="Services\ISpeechRecognitionService.cs" />
+    <Compile Include="Services\LoopbackRecord.cs" />
     <Compile Include="Services\SettingsXml.cs" />
     <Compile Include="Services\AzureSpeechRecognition.cs" />
     <Compile Include="Services\Subject.cs" />
     <Compile Include="ViewModels\ManuallyModeViewModel.cs" />
+    <Compile Include="ViewModels\SpeechRecognitionViewModel.cs" />
     <Compile Include="ViewModels\TranslatorViewModel.cs" />
     <Compile Include="Views\ManuallyModeView.xaml.cs">
       <DependentUpon>ManuallyModeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SpeechRecognitionView.xaml.cs">
+      <DependentUpon>SpeechRecognitionView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TranslatorView.xaml.cs">
       <DependentUpon>TranslatorView.xaml</DependentUpon>
@@ -193,6 +198,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\ManuallyModeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SpeechRecognitionView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

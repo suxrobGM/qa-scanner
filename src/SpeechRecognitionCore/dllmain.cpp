@@ -1,5 +1,6 @@
 // dllmain.cpp : Defines the entry point for the DLL application.
 #include "pch.h"
+#include <comutil.h>
 #define DLL_EXPORT __declspec(dllexport)
 
 BOOL APIENTRY DllMain( HMODULE hModule,
@@ -20,21 +21,20 @@ BOOL APIENTRY DllMain( HMODULE hModule,
 
 extern "C" {
 	 
-	DLL_EXPORT SpeechRecognition::AzureSpeech* CreateAzureSpeech(const char* subscriptionKey, const char* regionName)
+	DLL_EXPORT SpeechRecognition::AzureSpeech* __stdcall CreateAzureSpeech(const char* subscriptionKey, const char* regionName)
 	{
 		return new SpeechRecognition::AzureSpeech(subscriptionKey, regionName);
 	}
 		
-	DLL_EXPORT void DisposeAzureSpeech(SpeechRecognition::AzureSpeech* object)
+	DLL_EXPORT void __stdcall DisposeAzureSpeech(SpeechRecognition::AzureSpeech* object)
 	{
 		if (object != nullptr)
 		{
 			delete object;
-			object = nullptr;
 		}
 	}
 	
-	DLL_EXPORT void RecognizeFromMicrophone(SpeechRecognition::AzureSpeech* object)
+	DLL_EXPORT void __stdcall RecognizeFromMicrophone(SpeechRecognition::AzureSpeech* object)
 	{
 		if (object == nullptr)
 			return;
@@ -42,20 +42,19 @@ extern "C" {
 		object->RecognizeFromMicrophone();
 	}
 	
-	DLL_EXPORT void RecognizeFromWawFile(  SpeechRecognition::AzureSpeech* object,
-								const char* fileName,
-								bool saveToOutputFile = false,
-								const char* outputFileName = "transcript.txt"
-							 )
+	DLL_EXPORT void __stdcall RecognizeFromWavFile(SpeechRecognition::AzureSpeech* object, const char* filePath)
 	{
 		if (object == nullptr)
 			return;
 
-		object->RecognizeFromWawFile(fileName, saveToOutputFile, outputFileName);
+		object->RecognizeFromWavFile(filePath);
 	}
 
-	DLL_EXPORT char* GetOutputResult(SpeechRecognition::AzureSpeech* object)
+	DLL_EXPORT BSTR __stdcall GetOutputResult(SpeechRecognition::AzureSpeech* object)
 	{
-		return const_cast<char*>(object->GetOutputResult().c_str());
+		string outputText = object->GetOutputResult();
+		wstring woutputText(outputText.begin(), outputText.end());
+
+		return SysAllocString(woutputText.c_str());
 	}
 }
