@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QA_Scanner_Old", "src\QA_Sc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QA_Scanner_MVVM", "src\QA_Scanner_MVVM\QA_Scanner_MVVM.csproj", "{CE879E22-7399-4A29-B095-45B981E6A58B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestSpeechRecognition", "src\TestSpeechRecognition\TestSpeechRecognition.csproj", "{F025E34D-B121-42C7-B1CC-AF3A785E2432}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SpeechRecognitionCLI", "src\SpeechRecognitionCLI\SpeechRecognitionCLI.vcxproj", "{301447BC-4C05-4E2E-BABD-AF1BA09407D4}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SpeechRecognitionCore", "src\SpeechRecognitionCore\SpeechRecognitionCore.vcxproj", "{73C54B67-A037-4CA7-88DF-D44E6930FA81}"
@@ -47,18 +45,6 @@ Global
 		{CE879E22-7399-4A29-B095-45B981E6A58B}.Release|x64.Build.0 = Release|x64
 		{CE879E22-7399-4A29-B095-45B981E6A58B}.Release|x86.ActiveCfg = Release|x86
 		{CE879E22-7399-4A29-B095-45B981E6A58B}.Release|x86.Build.0 = Release|x86
-		{F025E34D-B121-42C7-B1CC-AF3A785E2432}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F025E34D-B121-42C7-B1CC-AF3A785E2432}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F025E34D-B121-42C7-B1CC-AF3A785E2432}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{F025E34D-B121-42C7-B1CC-AF3A785E2432}.Debug|x64.Build.0 = Debug|Any CPU
-		{F025E34D-B121-42C7-B1CC-AF3A785E2432}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{F025E34D-B121-42C7-B1CC-AF3A785E2432}.Debug|x86.Build.0 = Debug|Any CPU
-		{F025E34D-B121-42C7-B1CC-AF3A785E2432}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F025E34D-B121-42C7-B1CC-AF3A785E2432}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F025E34D-B121-42C7-B1CC-AF3A785E2432}.Release|x64.ActiveCfg = Release|Any CPU
-		{F025E34D-B121-42C7-B1CC-AF3A785E2432}.Release|x64.Build.0 = Release|Any CPU
-		{F025E34D-B121-42C7-B1CC-AF3A785E2432}.Release|x86.ActiveCfg = Release|Any CPU
-		{F025E34D-B121-42C7-B1CC-AF3A785E2432}.Release|x86.Build.0 = Release|Any CPU
 		{301447BC-4C05-4E2E-BABD-AF1BA09407D4}.Debug|Any CPU.ActiveCfg = Debug|Win32
 		{301447BC-4C05-4E2E-BABD-AF1BA09407D4}.Debug|x64.ActiveCfg = Debug|x64
 		{301447BC-4C05-4E2E-BABD-AF1BA09407D4}.Debug|x64.Build.0 = Debug|x64
