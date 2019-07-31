@@ -1,13 +1,6 @@
 ﻿using Awesomium.Windows.Controls;
 using Prism.Commands;
 using Prism.Mvvm;
-using QA_Scanner.Services;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace QA_Scanner_MVVM.ViewModels
 {

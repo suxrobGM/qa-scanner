@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Input;
 using QA_Scanner.PlatformSpecific;
+using QA_Scanner_MVVM.Models;
 
 namespace QA_Scanner_MVVM.Views
 {
@@ -9,17 +10,20 @@ namespace QA_Scanner_MVVM.Views
     /// </summary>
     public partial class MainWindow : Window
     {
-        private HotKey _hKey;
-        private HotKey _sliderPlus;
-        private HotKey _sliderMinus;
+        private readonly HotKey _hKey;
+        private readonly HotKey _sliderPlus;
+        private readonly HotKey _sliderMinus;
+        private readonly AppSettings _settings;
 
         public MainWindow()
         {
-            InitializeComponent();
+            _settings = AppSettings.FromJsonFile();
+            InitializeComponent();           
+            
             _hKey = new HotKey(Key.D, KeyModifier.Ctrl, SetVisible);
             _sliderPlus = new HotKey(Key.Multiply, KeyModifier.None, AddOpacity);
             _sliderMinus = new HotKey(Key.Subtract, KeyModifier.None, SubtractOpacity);
-        }
+        }       
 
         private void SetVisible(HotKey hotKey)
         {
@@ -35,7 +39,7 @@ namespace QA_Scanner_MVVM.Views
             {
                 opacitySlider.Value++;
                 Opacity = opacitySlider.Value / 100.0;
-                //_settings.Opacity = Opacity;
+                _settings.Opacity = Opacity;
             }
         }
 
@@ -45,13 +49,14 @@ namespace QA_Scanner_MVVM.Views
             {
                 opacitySlider.Value--;
                 Opacity = opacitySlider.Value / 100.0;
-                //_settings.Opacity = Opacity;
+                _settings.Opacity = Opacity;
             }
         }
 
         private void OpacitySlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             Opacity = opacitySlider.Value / 100.0;
+            _settings.Opacity = Opacity;
         }
 
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)

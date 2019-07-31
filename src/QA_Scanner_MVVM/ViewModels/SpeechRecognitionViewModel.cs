@@ -1,11 +1,12 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Threading.Tasks;
+using System.Windows.Threading;
 using System.Collections.ObjectModel;
 using Prism.Commands;
 using Prism.Mvvm;
 using QA_Scanner_MVVM.Services;
-using System.Windows.Threading;
-using System;
+
 
 namespace QA_Scanner_MVVM.ViewModels
 {

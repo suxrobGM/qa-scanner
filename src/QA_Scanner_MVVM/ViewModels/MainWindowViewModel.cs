@@ -1,10 +1,6 @@
-﻿using Prism.Commands;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Prism.Commands;
 
 namespace QA_Scanner_MVVM.ViewModels
 {

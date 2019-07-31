@@ -1,5 +1,4 @@
-﻿using System.IO;
-using System.Threading;
+﻿using System.Threading;
 using NAudio.CoreAudioApi;
 using NAudio.Wave;
 
@@ -32,7 +31,7 @@ namespace QA_Scanner_MVVM.Services
             _loopbackCapture.StartRecording();
         }
 
-        public void RecordAudio(string outputFileName, int duration)
+        public void StartRecordingLoopback(string outputFileName, int duration)
         {
             var recordedAudioWriter = new WaveFileWriter(outputFileName, _loopbackCapture.WaveFormat);
 
